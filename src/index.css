@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+    box-sizing: border-box;
+}
+
+.full-width {
+    width: 100%;
+    padding-inline: 0;
+}
+
+/* ------------------------- Tablet CSS -------------------------*/
+@media (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+/* ------------------------- Mobile CSS -------------------------*/
+@media (max-width: 640px) {
+    .container {
+        padding-inline: 1rem;
+    }
+}

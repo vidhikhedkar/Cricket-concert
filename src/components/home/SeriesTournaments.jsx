@@ -50,7 +50,7 @@ const ArrowRightIcon = ({ className = 'w-4 h-4' }) => (
 const SeriesTournaments = () => {
   const scrollRef = useRef(null);
 
-  
+
   const handleScrollRight = () => {
     if (scrollRef.current) {
       const container = scrollRef.current;
@@ -69,7 +69,7 @@ const SeriesTournaments = () => {
 
 
   return (
-    <section className="container mx-auto  py-8 font-sans">
+    <section className="container py-8 font-sans">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 mb-4 sm:mb-6">
         <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0B192C] tracking-tight">
           Series & Tournaments
@@ -88,7 +88,7 @@ const SeriesTournaments = () => {
       <div className="relative group/carousel">
         <div
           ref={scrollRef}
-          className="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth pb-4 pt-1 snap-x snap-mandatory -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth pb-4 pt-1 snap-x snap-mandatory mx-0  scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {seriesData.map((item) => (
             <div

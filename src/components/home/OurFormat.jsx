@@ -84,7 +84,7 @@ const OurFormat = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center relative z-10">
-          <div className="lg:col-span-4 flex flex-col justify-between space-y-4">
+          <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
             <div>
               <span className="text-xs font-bold text-[#2563EB] uppercase tracking-widest block mb-1">
                 {SECTION_CONTENT.badge}
@@ -97,7 +97,7 @@ const OurFormat = () => {
               </p>
             </div>
 
-            <div className="space-y-3 py-1">
+            <div className="space-y-6 py-1">
               {FEATURES_DATA.map((item) => {
                 const IconComponent = item.icon;
                 return (
@@ -138,7 +138,7 @@ const OurFormat = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-4 flex justify-center lg:justify-end">
+          <div className="lg:col-span-4 flex justify-start lg:justify-end">
             <div className="w-full max-w-md bg-white rounded-2xl p-4 sm:p-5 border border-slate-100 shadow-xl shadow-slate-300 flex flex-col justify-between space-y-3">
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-widest text-[#1F2937] mb-3 border-b border-slate-100 pb-2">

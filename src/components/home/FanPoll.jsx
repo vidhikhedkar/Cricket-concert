@@ -87,7 +87,7 @@ const FanPoll = () => {
     };
 
     return (
-        <section className="container mx-auto px-4 lg:px-0 py-8 font-sans">
+        <section className="container mx-auto py-8 font-sans">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 <div className="bg-white rounded-2xl p-5  border-5 border-[#F1F5F9] shadow-xs flex flex-col justify-between">
                     <div>

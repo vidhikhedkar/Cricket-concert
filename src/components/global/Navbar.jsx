@@ -60,6 +60,7 @@ const Navbar = () => {
 
 
     // Prevent background scrolling when mobile overlays are open
+    
     // useEffect(() => {
     //     if (isSidebarOpen || isDropdownOverlayOpen || isDesktopDropdownOpen) {
     //         document.body.style.overflow = 'hidden';
@@ -70,6 +71,7 @@ const Navbar = () => {
     //         document.body.style.overflow = 'unset';
     //     };
     // }, [isSidebarOpen, isDropdownOverlayOpen, isDesktopDropdownOpen]);
+
 
 
     return (

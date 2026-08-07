@@ -10,23 +10,6 @@ import trophy from '../../assets/home/section12/trophy.png';
 const GlobalEcosystem = () => {
     return (
         <section className="bg-[#F5FAFF] py-10 overflow-hidden relative font-sans">
-            <style>{`
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(-12px) rotate(-2deg); }
-          50% { transform: translateY(12px) rotate(2deg); }
-        }
-        @keyframes floatReverse {
-          0%, 100% { transform: translateY(12px) rotate(2deg); }
-          50% { transform: translateY(-12px) rotate(-2deg); }
-        }
-        .animate-float-slow {
-          animation: floatSlow 6.5s ease-in-out infinite;
-        }
-        .animate-float-reverse {
-          animation: floatReverse 7s ease-in-out infinite;
-        }
-      `}</style>
-
             <div className="max-w-5xl mx-auto text-center">
                 <div className="container mx-auto mb-8 sm:mb-16">
                     <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] text-[#0047CE] uppercase">
@@ -50,7 +33,7 @@ const GlobalEcosystem = () => {
                             {/* Pure Soft Background Glow */}
                             <div className="absolute -inset-3 bg-blue-500/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                            <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-65 md:h-65 bg-linear-to-b from-blue-50/60 to-white/90 rounded-full p-1.5 sm:p-2.5 shadow-2xl shadow-blue-500/10 border border-blue-100/60 flex items-center justify-center group-hover:scale-105 group-hover:shadow-[0_10px_40px_rgba(59,130,246,0.35)] transition-all duration-300">
+                            <div className="relative w-40 h-40 sm:w-50 sm:h-50 md:w-55 md:h-55 bg-linear-to-b from-blue-50/60 to-white/90 rounded-full p-1.5 sm:p-2.5 shadow-2xl shadow-blue-500/10 border border-blue-100/60 flex items-center justify-center group-hover:scale-105 group-hover:shadow-[0_10px_40px_rgba(59,130,246,0.35)] transition-all duration-300">
                                 <div className="w-full h-full bg-white rounded-full p-2.5 sm:p-4 md:p-6 shadow-inner border border-slate-200 flex flex-col items-center justify-center">
                                     <img
                                         src={trophy}

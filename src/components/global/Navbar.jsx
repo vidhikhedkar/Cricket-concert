@@ -41,9 +41,33 @@ const Navbar = () => {
                 setIsDesktopDropdownOpen(false);
             }
         };
+
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setIsDesktopDropdownOpen(false);
+            }
+        };
+
         document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
+
+    // Prevent background scrolling when mobile overlays are open
+    useEffect(() => {
+        if (isSidebarOpen || isDropdownOverlayOpen || isDesktopDropdownOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isSidebarOpen, isDropdownOverlayOpen, isDesktopDropdownOpen]);
 
 
     return (
@@ -78,10 +102,10 @@ const Navbar = () => {
 
 
                             {isDesktopDropdownOpen && (
-                                <div className="absolute top-16 left-0 w-80 bg-[#05142c] border border-blue-900/60 rounded-xl shadow-2xl py-4 z-50 hidden md:block text-white">
-                                    <div className="max-h-[calc(100vh-120px)] overflow-y-auto px-4 space-y-5 custom-scrollbar">
+                                <div className="absolute top-12 md:top-14 left-0 lg:-left-12 w-72 md:w-80 bg-[#05142c] border border-blue-900/60 rounded-xl shadow-2xl py-3 z-50 text-white">
+                                    <div className="max-h-[calc(100vh-140px)] overflow-y-auto px-3 md:px-4 space-y-3.5 no-scrollbar">
                                         <div>
-                                            <div className="text-[11px] font-bold tracking-widest text-[#00E5FF] px-2 mb-2 uppercase">
+                                            <div className="text-[11px] font-bold tracking-widest text-[#00E5FF] px-2 mb-1.5 uppercase">
                                                 Quick Access
                                             </div>
                                             <div className="space-y-1">
@@ -92,7 +116,7 @@ const Navbar = () => {
                                                             key={link.name}
                                                             to={link.to}
                                                             className={({ isActive }) =>
-                                                                `flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                                                `flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                                                 }`
                                                             }
                                                             onClick={() => setIsDesktopDropdownOpen(false)}
@@ -109,7 +133,7 @@ const Navbar = () => {
                                         </div>
 
                                         <div>
-                                            <div className="text-[11px] font-bold tracking-widest text-[#00E5FF] px-2 mb-2 uppercase">
+                                            <div className="text-[11px] font-bold tracking-widest text-[#00E5FF] px-2 mb-1.5 uppercase">
                                                 Explore
                                             </div>
                                             <div className="space-y-1">
@@ -120,7 +144,7 @@ const Navbar = () => {
                                                             key={link.name}
                                                             to={link.to}
                                                             className={({ isActive }) =>
-                                                                `flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                                                `flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                                                 }`
                                                             }
                                                             onClick={() => setIsDesktopDropdownOpen(false)}

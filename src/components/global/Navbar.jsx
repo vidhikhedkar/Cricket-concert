@@ -57,17 +57,19 @@ const Navbar = () => {
         };
     }, []);
 
+
+
     // Prevent background scrolling when mobile overlays are open
-    useEffect(() => {
-        if (isSidebarOpen || isDropdownOverlayOpen || isDesktopDropdownOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, [isSidebarOpen, isDropdownOverlayOpen, isDesktopDropdownOpen]);
+    // useEffect(() => {
+    //     if (isSidebarOpen || isDropdownOverlayOpen || isDesktopDropdownOpen) {
+    //         document.body.style.overflow = 'hidden';
+    //     } else {
+    //         document.body.style.overflow = 'unset';
+    //     }
+    //     return () => {
+    //         document.body.style.overflow = 'unset';
+    //     };
+    // }, [isSidebarOpen, isDropdownOverlayOpen, isDesktopDropdownOpen]);
 
 
     return (

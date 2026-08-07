@@ -1,17 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-    FiSearch, FiUser, FiMenu, FiX, FiChevronDown, FiChevronUp, FiChevronRight,
-    FiHome, FiRadio, FiCalendar, FiGrid, FiBarChart2, FiUsers, FiAward, FiFileText, FiImage, FiVideo
-} from 'react-icons/fi';
+import { FiSearch, FiUser, FiMenu, FiX, FiChevronDown, FiChevronUp, FiChevronRight, FiHome, FiRadio, FiCalendar, FiGrid, FiBarChart2, FiUsers, FiAward, FiFileText, FiImage, FiVideo } from 'react-icons/fi';
 
 const Navbar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Mobile Menu Sidebar (Hamburger Button)
-    const [isDropdownOverlayOpen, setIsDropdownOverlayOpen] = useState(false); // Mobile Logo Dropdown
-    const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false); // Desktop Logo Dropdown
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isDropdownOverlayOpen, setIsDropdownOverlayOpen] = useState(false);
+    const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
     const desktopDropdownRef = useRef(null);
 
-    // Desktop & Mobile Hamburger Menu links
     const navLinks = [
         { name: 'About', to: '/about' },
         { name: 'icpl', to: '/icpl' },
@@ -20,7 +16,7 @@ const Navbar = () => {
         { name: 'contact us', to: '/contact' },
     ];
 
-    // Quick Access & Explore Links (For Logo Dropdown)
+
     const quickAccessLinks = [
         { name: 'Home', to: '/', icon: FiHome },
         { name: 'Live Scores', to: '/live-scores', icon: FiRadio },
@@ -38,7 +34,7 @@ const Navbar = () => {
         { name: 'Videos', to: '/videos', icon: FiVideo },
     ];
 
-    // Close desktop dropdown when clicking outside
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (desktopDropdownRef.current && !desktopDropdownRef.current.contains(event.target)) {
@@ -49,14 +45,12 @@ const Navbar = () => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+
     return (
         <nav className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container">
                 <div className="flex items-center justify-between h-20">
-
-                    {/* Left: Mobile Menu Toggle & Logo with Dropdown */}
                     <div className="flex items-center space-x-4">
-                        {/* Hamburger Menu Toggle */}
                         <button
                             onClick={() => setIsSidebarOpen(true)}
                             className="text-gray-700 hover:text-gray-900 focus:outline-none md:hidden z-50 relative"
@@ -65,7 +59,6 @@ const Navbar = () => {
                             <FiMenu className="w-7 h-7" />
                         </button>
 
-                        {/* Logo & Dropdown Container */}
                         <div className="relative flex items-center" ref={desktopDropdownRef}>
                             <div
                                 className="flex items-center space-x-1 sm:space-x-2 cursor-pointer select-none py-2"
@@ -83,12 +76,10 @@ const Navbar = () => {
                                 <FiChevronDown className={`w-4 h-4 text-gray-600 transition-transform duration-200 ${isDesktopDropdownOpen ? 'rotate-180' : ''}`} />
                             </div>
 
-                            {/* Desktop Logo Dropdown Menu (Quick Access & Explore) */}
+
                             {isDesktopDropdownOpen && (
                                 <div className="absolute top-16 left-0 w-80 bg-[#05142c] border border-blue-900/60 rounded-xl shadow-2xl py-4 z-50 hidden md:block text-white">
                                     <div className="max-h-[calc(100vh-120px)] overflow-y-auto px-4 space-y-5 custom-scrollbar">
-
-                                        {/* Quick Access Section */}
                                         <div>
                                             <div className="text-[11px] font-bold tracking-widest text-[#00E5FF] px-2 mb-2 uppercase">
                                                 Quick Access
@@ -117,7 +108,6 @@ const Navbar = () => {
                                             </div>
                                         </div>
 
-                                        {/* Explore Section */}
                                         <div>
                                             <div className="text-[11px] font-bold tracking-widest text-[#00E5FF] px-2 mb-2 uppercase">
                                                 Explore
@@ -145,7 +135,6 @@ const Navbar = () => {
                                                 })}
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             )}
@@ -154,7 +143,6 @@ const Navbar = () => {
                         <div className="hidden md:block h-6 w-px bg-gray-300 mx-2" />
                     </div>
 
-                    {/* Middle: Navigation Links (Desktop) */}
                     <div className="hidden md:flex items-center space-x-8">
                         {navLinks.map((link) => (
                             <NavLink
@@ -179,7 +167,6 @@ const Navbar = () => {
                         ))}
                     </div>
 
-                    {/* Right: Actions */}
                     <div className="flex items-center space-x-4 sm:space-x-6">
                         <button className="text-gray-700 hover:text-gray-900 transition-colors" aria-label="Search">
                             <FiSearch className="w-5 h-5" />
@@ -194,10 +181,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* 1. Mobile Menu Sidebar Overlay (Shows ONLY navLinks for Hamburger Button) */}
             <div className={`fixed inset-0 bg-[#05142c] text-white z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-
-                {/* Top Header Inside Drawer */}
                 <div className="flex items-center justify-between px-4 py-4 border-b border-blue-900/60">
                     <span className="font-bold text-lg tracking-wider text-[#00E5FF]">Menu</span>
                     <button
@@ -209,7 +193,6 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Drawer Links List (Only navLinks) */}
                 <div className="flex-1 overflow-y-auto px-4 py-6 space-y-2">
                     {navLinks.map((link) => (
                         <NavLink
@@ -227,7 +210,6 @@ const Navbar = () => {
                     ))}
                 </div>
 
-                {/* Footer Close Menu Button */}
                 <div className="p-4 border-t border-blue-900/40 bg-[#05142c]">
                     <button
                         onClick={() => setIsSidebarOpen(false)}
@@ -239,13 +221,10 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* 2. Mobile Logo Dropdown Fullscreen Overlay (Quick Access & Explore sections) */}
-            <div className={`fixed inset-0 bg-[#05142c] text-white z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${isDropdownOverlayOpen ? 'translate-y-0' : '-translate-y-full'}`}>
 
-                {/* Top Header inside Sub-Menu */}
+            <div className={`fixed inset-0 bg-[#05142c] text-white z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${isDropdownOverlayOpen ? 'translate-y-0' : '-translate-y-full'}`}>
                 <div className="flex items-center justify-between px-4 py-4 border-b border-blue-900/60">
                     <div className="w-7"></div>
-
                     <div
                         className="flex items-center space-x-2 cursor-pointer"
                         onClick={() => setIsDropdownOverlayOpen(false)}
@@ -263,9 +242,8 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Scrollable Content */}
+
                 <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
-                    {/* Quick Access Section */}
                     <div>
                         <div className="text-[11px] font-bold tracking-widest text-[#00E5FF] px-3 mb-2 uppercase">
                             Quick Access
@@ -294,7 +272,6 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    {/* Explore Section */}
                     <div>
                         <div className="text-[11px] font-bold tracking-widest text-[#00E5FF] px-3 mb-2 uppercase">
                             Explore
@@ -324,7 +301,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Footer Back Option */}
+
                 <div className="p-4 border-t border-blue-900/60 bg-[#05142c] text-center">
                     <button
                         onClick={() => setIsDropdownOverlayOpen(false)}

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import viratkohli from '../../assets/home/section7/player1.png';
 import BabaAzam from '../../assets/home/section7/player2.png';
 import JoeRoot from '../../assets/home/section7/player3.png';
@@ -122,27 +122,69 @@ const ArrowRightIcon = () => (
 
 const TopPlayers = () => {
     const scrollRef = useRef(null);
+    const isInteracting = useRef(false);
 
-    const handleScroll = (direction) => {
+    // Duplicating items to guarantee infinite scrolling on all screen sizes
+    const loopedPlayers = [...playersData, ...playersData, ...playersData];
+
+    const getCardWidth = () => {
+        if (!scrollRef.current) return 300;
+        const firstCard = scrollRef.current.children[0];
+        if (!firstCard) return 300;
+        const style = window.getComputedStyle(scrollRef.current);
+        const gap = parseFloat(style.gap) || 20;
+        return firstCard.offsetWidth + gap;
+    };
+
+    // Center starting scroll position to the middle loop set
+    useEffect(() => {
         if (scrollRef.current) {
-            const container = scrollRef.current;
-            const firstCard = container.querySelector(':scope > div');
+            const singleSetWidth = scrollRef.current.scrollWidth / 3;
+            scrollRef.current.scrollLeft = singleSetWidth;
+        }
+    }, []);
 
-            if (firstCard) {
-                const style = window.getComputedStyle(container);
-                const gap = parseFloat(style.gap) || 20;
-                const cardWidth = firstCard.clientWidth + gap;
+    // Seamless scroll loop boundary listener
+    const handleScrollEvent = () => {
+        if (!scrollRef.current) return;
+        const { scrollLeft, scrollWidth } = scrollRef.current;
+        const singleSetWidth = scrollWidth / 3;
 
-                container.scrollBy({
-                    left: direction === 'left' ? -cardWidth : cardWidth,
-                    behavior: 'smooth',
-                });
-            }
+        if (scrollLeft <= 10) {
+            scrollRef.current.scrollLeft = singleSetWidth + scrollLeft;
+        } else if (scrollLeft >= singleSetWidth * 2 - 10) {
+            scrollRef.current.scrollLeft = singleSetWidth;
         }
     };
 
+    // Dynamic Interval Timer for Auto Scroll
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (scrollRef.current && !isInteracting.current) {
+                const cardWidth = getCardWidth();
+                scrollRef.current.style.scrollBehavior = 'smooth';
+                scrollRef.current.scrollBy({
+                    left: cardWidth,
+                    behavior: 'smooth',
+                });
+            }
+        }, 3200);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleManualScroll = (direction) => {
+        if (!scrollRef.current) return;
+        const cardWidth = getCardWidth();
+        scrollRef.current.style.scrollBehavior = 'smooth';
+        scrollRef.current.scrollBy({
+            left: direction === 'right' ? cardWidth : -cardWidth,
+            behavior: 'smooth',
+        });
+    };
+
     return (
-        <div className="container mx-auto  py-8 font-sans">
+        <div className="container mx-auto py-8 font-sans select-none overflow-hidden">
             <div className="flex items-center justify-between mb-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 mb-4 sm:mb-6">
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0A2540] tracking-tight">
@@ -159,7 +201,7 @@ const TopPlayers = () => {
                 <div className="flex items-center gap-2">
                     <button
                         type="button"
-                        onClick={() => handleScroll('left')}
+                        onClick={() => handleManualScroll('left')}
                         className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-[#0A192F] hover:text-white hover:border-[#0A192F] transition-all duration-200 flex items-center justify-center shadow-xs cursor-pointer active:scale-95"
                         aria-label="Previous"
                     >
@@ -168,7 +210,7 @@ const TopPlayers = () => {
 
                     <button
                         type="button"
-                        onClick={() => handleScroll('right')}
+                        onClick={() => handleManualScroll('right')}
                         className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#0A192F] text-white border border-[#0A192F] hover:bg-white hover:text-slate-700 hover:border-slate-200 transition-all duration-200 flex items-center justify-center shadow-xs cursor-pointer active:scale-95"
                         aria-label="Next"
                     >
@@ -179,9 +221,22 @@ const TopPlayers = () => {
 
             <div
                 ref={scrollRef}
-                className="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth pb-4 pt-1 snap-x snap-mandatory  px-4 lg:mx-0 lg:px-0 scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                onScroll={handleScrollEvent}
+                onMouseEnter={() => {
+                    isInteracting.current = true;
+                }}
+                onMouseLeave={() => {
+                    isInteracting.current = false;
+                }}
+                onTouchStart={() => {
+                    isInteracting.current = true;
+                }}
+                onTouchEnd={() => {
+                    isInteracting.current = false;
+                }}
+                className="flex gap-4 sm:gap-5 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory px-4 lg:mx-0 lg:px-0 scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing"
             >
-                {playersData.map((player) => {
+                {loopedPlayers.map((player, index) => {
                     const ratingPercentage = Math.min(
                         100,
                         (player.rating / player.maxRating) * 100
@@ -189,8 +244,8 @@ const TopPlayers = () => {
 
                     return (
                         <div
-                            key={player.id}
-                            className="w-65 sm:w-70 shrink-0 snap-start bg-white rounded-2xl border border-slate-100 shadow-xs hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col justify-between"
+                            key={`${player.id}-${index}`}
+                            className="w-65 sm:w-70 shrink-0 snap-always snap-start bg-white rounded-2xl border border-slate-100 shadow-xs hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col justify-between"
                         >
                             <div>
                                 <div className="relative bg-[#DCE3E8] h-52 sm:h-56 flex items-end justify-center overflow-hidden">
@@ -206,7 +261,7 @@ const TopPlayers = () => {
                                     <img
                                         src={player.image}
                                         alt={player.name}
-                                        className="h-full object-cover object-bottom"
+                                        className="h-full object-cover object-bottom pointer-events-none"
                                     />
                                 </div>
 

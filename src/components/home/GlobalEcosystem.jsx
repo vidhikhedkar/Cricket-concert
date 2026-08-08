@@ -63,6 +63,19 @@ const GlobalEcosystem = () => {
 
     const [draggedIndex, setDraggedIndex] = useState(null);
 
+    // Swap logic helper
+    const swapPartners = (fromIndex, toIndex) => {
+        if (fromIndex === null || toIndex === null || fromIndex === toIndex) return;
+
+        const updatedPartners = [...partners];
+        const tempImg = updatedPartners[fromIndex].img;
+        updatedPartners[fromIndex].img = updatedPartners[toIndex].img;
+        updatedPartners[toIndex].img = tempImg;
+
+        setPartners(updatedPartners);
+    };
+
+    // Desktop Mouse Handlers
     const handleDragStart = (e, index) => {
         setDraggedIndex(index);
         e.dataTransfer.effectAllowed = 'move';
@@ -75,14 +88,29 @@ const GlobalEcosystem = () => {
 
     const handleDrop = (e, dropIndex) => {
         e.preventDefault();
-        if (draggedIndex === null || draggedIndex === dropIndex) return;
+        swapPartners(draggedIndex, dropIndex);
+        setDraggedIndex(null);
+    };
 
-        const updatedPartners = [...partners];
-        const tempImg = updatedPartners[draggedIndex].img;
-        updatedPartners[draggedIndex].img = updatedPartners[dropIndex].img;
-        updatedPartners[dropIndex].img = tempImg;
+    // Mobile Touch Handlers
+    const handleTouchStart = (index) => {
+        setDraggedIndex(index);
+    };
 
-        setPartners(updatedPartners);
+    const handleTouchEnd = (e) => {
+        if (draggedIndex === null) return;
+
+        const touch = e.changedTouches[0];
+        const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+
+        if (targetElement) {
+            const partnerNode = targetElement.closest('[data-partner-index]');
+            if (partnerNode) {
+                const dropIndex = parseInt(partnerNode.getAttribute('data-partner-index'), 10);
+                swapPartners(draggedIndex, dropIndex);
+            }
+        }
+
         setDraggedIndex(null);
     };
 
@@ -134,15 +162,18 @@ const GlobalEcosystem = () => {
                         </div>
                     </div>
 
-                    {/* DYNAMIC PARTNER LOGOS */}
+                    {/* DYNAMIC PARTNER LOGOS (DESKTOP DRAG & MOBILE TOUCH SUPPORT) */}
                     {partners.map((partner, index) => (
                         <div
                             key={partner.id}
+                            data-partner-index={index}
                             draggable
                             onDragStart={(e) => handleDragStart(e, index)}
                             onDragOver={handleDragOver}
                             onDrop={(e) => handleDrop(e, index)}
-                            className={`absolute ${partner.positionClass} ${partner.animationClass} z-10 cursor-grab active:cursor-grabbing transition-transform duration-300`}
+                            onTouchStart={() => handleTouchStart(index)}
+                            onTouchEnd={handleTouchEnd}
+                            className={`absolute ${partner.positionClass} ${partner.animationClass} z-10 cursor-grab active:cursor-grabbing transition-transform duration-300 touch-none ${draggedIndex === index ? 'scale-125 opacity-80 z-30' : ''}`}
                         >
                             <div className="group relative">
                                 <div className="absolute -inset-2 sm:-inset-3 bg-blue-400/40 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

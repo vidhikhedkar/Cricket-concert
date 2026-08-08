@@ -117,7 +117,7 @@ const Navbar = () => {
                                                             key={link.name}
                                                             to={link.to}
                                                             className={({ isActive }) =>
-                                                                `flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                                                `flex items-center justify-between uppercase px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                                                 }`
                                                             }
                                                             onClick={() => setIsDesktopDropdownOpen(false)}
@@ -145,7 +145,7 @@ const Navbar = () => {
                                                             key={link.name}
                                                             to={link.to}
                                                             className={({ isActive }) =>
-                                                                `flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                                                `flex items-center justify-between uppercase px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                                                 }`
                                                             }
                                                             onClick={() => setIsDesktopDropdownOpen(false)}
@@ -290,7 +290,7 @@ const Navbar = () => {
                                         key={link.name}
                                         to={link.to}
                                         className={({ isActive }) =>
-                                            `flex items-center justify-between px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                            `flex items-center justify-between uppercase px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                             }`
                                         }
                                         onClick={() => setIsDropdownOverlayOpen(false)}
@@ -318,7 +318,7 @@ const Navbar = () => {
                                         key={link.name}
                                         to={link.to}
                                         className={({ isActive }) =>
-                                            `flex items-center justify-between px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                            `flex items-center justify-between uppercase px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                             }`
                                         }
                                         onClick={() => setIsDropdownOverlayOpen(false)}

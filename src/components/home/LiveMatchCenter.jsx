@@ -195,7 +195,7 @@ const LiveMatchCenter = () => {
             key={`${match.id}-${idx}`}
             className={`w-[82vw] min-w-65 max-w-75 sm:w-[320px] sm:max-w-none shrink-0 snap-center sm:snap-start bg-[#F2F6FF] backdrop-blur border border-[#C5C6D2]/30 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden relative ${
               match.isHighlighted
-                ? 'bg-gradient-to-br from-slate-50 via-blue-50/40 to-slate-50'
+                ? 'bg-linear-to-br from-slate-50 via-blue-50/40 to-slate-50'
                 : ''
             }`}
           >

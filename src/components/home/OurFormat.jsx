@@ -1,7 +1,7 @@
 import React from 'react';
 import {FiClock,FiUsers,FiGlobe,FiArrowRight,FiPlayCircle,FiZap} from 'react-icons/fi';
 import { TbChessKnight, TbScale } from 'react-icons/tb';
-import object1 from '../../assets/home/section8/Object-1.png';
+import object1 from '../../assets/home/section8/Group.png';
 
 
 const FEATURES_DATA = [
@@ -134,7 +134,7 @@ const OurFormat = () => {
                 className="w-full max-h-80 sm:max-h-95 lg:max-h-115 object-contain z-10 lg:scale-105 transition-transform duration-300 drop-shadow-xl"
               />
 
-              <div className="absolute inset-0 bg-white/20 backdrop-brightness-100 z-20 pointer-events-none rounded-3xl" />
+              {/* <div className="absolute inset-0 bg-white/20 backdrop-brightness-100 z-20 pointer-events-none rounded-3xl" /> */}
             </div>
           </div>
 

@@ -66,7 +66,7 @@ const Rankings = () => {
     ];
 
     return (
-        <section className="w-full  p-4 sm:p-0 lg:p-8 font-sans bg-[#F5F8FE] my-6">
+        <section className="w-full  p-4 sm:p-0 lg:p-8 font-sans bg-[#F5F8FE] my-8">
             <div className="container">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                     <div>

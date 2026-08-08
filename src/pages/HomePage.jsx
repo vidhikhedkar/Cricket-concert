@@ -10,10 +10,12 @@ import SeriesTournaments from '../components/home/SeriesTournaments'
 import FanPoll from '../components/home/FanPoll'
 import LatestNews from '../components/home/LatestNews'
 import GlobalEcosystem from '../components/home/GlobalEcosystem'
+import HeroSection from '../components/home/HeroSection'
 
 const HomePage = () => {
     return (
         <>
+            <HeroSection />
             <LiveMatchCenter />
             <FeatureMatch />
             <WorldCricket />

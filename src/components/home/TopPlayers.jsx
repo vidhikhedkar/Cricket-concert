@@ -287,7 +287,7 @@ const TopPlayers = () => {
                                         {/* Stats Grid */}
                                         <div className="grid grid-cols-3 gap-1.5 sm:gap-2 my-3 sm:my-4 text-center">
                                             <div className="bg-slate-50/70 p-1.5 sm:p-2 rounded-lg">
-                                                <div className="text-xs sm:text-sm font-bold text-[#0B5FFF] truncate">
+                                                <div className="text-xs sm:text-sm font-bold text-[#142546] truncate">
                                                     {player.stats.runs}
                                                 </div>
                                                 <div className="text-[10px] sm:text-[11px] font-medium text-[#0A2540]/50">
@@ -295,7 +295,7 @@ const TopPlayers = () => {
                                                 </div>
                                             </div>
                                             <div className="bg-slate-50/70 p-1.5 sm:p-2 rounded-lg">
-                                                <div className="text-xs sm:text-sm font-bold text-[#0B5FFF] truncate">
+                                                <div className="text-xs sm:text-sm font-bold text-[#142546] truncate">
                                                     {player.stats.average}
                                                 </div>
                                                 <div className="text-[10px] sm:text-[11px] font-medium text-[#0A2540]/50">
@@ -303,7 +303,7 @@ const TopPlayers = () => {
                                                 </div>
                                             </div>
                                             <div className="bg-slate-50/70 p-1.5 sm:p-2 rounded-lg">
-                                                <div className="text-xs sm:text-sm font-bold text-[#0B5FFF] truncate">
+                                                <div className="text-xs sm:text-sm font-bold text-[#142546] truncate">
                                                     {player.stats.hundreds}
                                                 </div>
                                                 <div className="text-[10px] sm:text-[11px] font-medium text-[#0A2540]/50">
@@ -326,7 +326,7 @@ const TopPlayers = () => {
                                     </div>
                                     <div className="w-full bg-slate-200/60 h-1.5 rounded-full overflow-hidden">
                                         <div
-                                            className="h-full rounded-full transition-all duration-500 bg-linear-to-r from-[#0052FF] via-[#3B82F6] to-white"
+                                            className="h-full rounded-full transition-all duration-500 bg-linear-to-r from-[#050913] via-[#0b2c61] to-white"
                                             style={{
                                                 width: `${ratingPercentage}%`,
                                             }}

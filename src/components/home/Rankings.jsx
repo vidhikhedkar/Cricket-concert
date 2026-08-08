@@ -66,7 +66,7 @@ const Rankings = () => {
     ];
 
     return (
-        <section className="w-full  p-0 sm:p-0 lg:p-8 font-sans bg-[#F5F8FE] my-6">
+        <section className="w-full  p-4 sm:p-0 lg:p-8 font-sans bg-[#F5F8FE] my-6">
             <div className="container">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                     <div>
@@ -95,7 +95,7 @@ const Rankings = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+                <div className="grid grid-cols-2 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
                     <div className="bg-white rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 sm:gap-3.5 shadow-md hover:shadow-lg border border-slate-100 transition-shadow">
                         <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#EFF6FF] flex items-center justify-center shrink-0">
                             <GlobeIcon className="text-[#2563EB] w-5 h-5 sm:w-6 sm:h-6" />

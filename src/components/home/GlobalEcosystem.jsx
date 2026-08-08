@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import WCC1 from '../../assets/home/section12/WCC1.png';
 import WCC2 from '../../assets/home/section12/WCC2.png';
 import WCC3 from '../../assets/home/section12/WCC3.png';
@@ -9,7 +10,10 @@ import WCC7 from '../../assets/home/section12/WCC7.png';
 import trophy from '../../assets/home/section12/trophy.png';
 
 const GlobalEcosystem = () => {
-    const [partners, setPartners] = useState([
+    const containerRef = useRef(null);
+    const [draggingId, setDraggingId] = useState(null);
+
+    const partners = [
         {
             id: 'p1',
             img: WCC3,
@@ -59,29 +63,18 @@ const GlobalEcosystem = () => {
             animationClass: 'animate-float-diagonal',
             sizeClass: 'w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20',
         },
-    ]);
+    ];
 
-    // Tracks which partner is currently selected for swapping
-    const [selectedPartnerIndex, setSelectedPartnerIndex] = useState(null);
+    const handleDragStart = (id) => {
+        setDraggingId(id);
+        // Prevent body scroll on mobile touch devices when dragging starts
+        document.body.style.overflow = 'hidden';
+    };
 
-    const handlePartnerClick = (index) => {
-        if (selectedPartnerIndex === null) {
-            // Step 1: Select first partner image
-            setSelectedPartnerIndex(index);
-        } else if (selectedPartnerIndex === index) {
-            // Deselect if user taps the same image again
-            setSelectedPartnerIndex(null);
-        } else {
-            // Step 2: Swap images between selected partner and newly tapped partner
-            const updatedPartners = [...partners];
-            const tempImg = updatedPartners[selectedPartnerIndex].img;
-
-            updatedPartners[selectedPartnerIndex].img = updatedPartners[index].img;
-            updatedPartners[index].img = tempImg;
-
-            setPartners(updatedPartners);
-            setSelectedPartnerIndex(null); // Reset selection
-        }
+    const handleDragEnd = () => {
+        setDraggingId(null);
+        // Restore body scroll when dragging ends
+        document.body.style.overflow = '';
     };
 
     return (
@@ -95,11 +88,14 @@ const GlobalEcosystem = () => {
                         WCC Partners
                     </h2>
                     <p className="text-xs sm:text-sm md:text-base text-[#44474D] font-medium leading-relaxed px-2">
-                        Tap one partner logo and then tap another to swap their positions.
+                        Drag any partner logo over others and release to bounce it back to its place.
                     </p>
                 </div>
 
-                <div className="relative w-full max-w-75 sm:max-w-110 md:max-w-180 h-80 sm:h-96 md:h-120 mx-auto">
+                <div
+                    ref={containerRef}
+                    className="relative w-full max-w-75 sm:max-w-110 md:max-w-180 h-80 sm:h-96 md:h-120 mx-auto touch-none"
+                >
 
                     {/* BACKGROUND ORBITAL RINGS */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
@@ -108,7 +104,7 @@ const GlobalEcosystem = () => {
                     </div>
 
                     {/* CENTER TROPHY NODE */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
                         <div className="group relative flex items-center justify-center">
                             <div className="absolute w-full h-full rounded-full border border-blue-400/40 animate-pulse-ring" />
                             <div className="absolute w-full h-full rounded-full border border-blue-500/30 animate-pulse-ring-delayed" />
@@ -130,38 +126,47 @@ const GlobalEcosystem = () => {
                         </div>
                     </div>
 
-                    {/* DYNAMIC PARTNER LOGOS (TAP TO SWAP) */}
+                    {/* DYNAMIC PARTNER LOGOS */}
                     {partners.map((partner, index) => {
-                        const isSelected = selectedPartnerIndex === index;
+                        const isDragging = draggingId === partner.id;
 
                         return (
                             <div
                                 key={partner.id}
-                                onClick={() => handlePartnerClick(index)}
-                                className={`absolute ${partner.positionClass} ${partner.animationClass} z-10 cursor-pointer transition-all duration-300 select-none outline-none`}
+                                className={`absolute ${partner.positionClass} ${partner.animationClass} touch-none`}
+                                style={{
+                                    zIndex: isDragging ? 100 : 20,
+                                    touchAction: 'none'
+                                }}
                             >
-                                <div className="group relative">
-                                    {/* Selection Glow Indicator without harsh border */}
-                                    <div
-                                        className={`absolute -inset-2 sm:-inset-2.5 rounded-full blur-xl transition-opacity duration-300 ${isSelected
-                                                ? 'bg-blue-600 opacity-100 animate-pulse'
-                                                : 'bg-blue-400/40 opacity-0 group-hover:opacity-100'
-                                            }`}
-                                    />
+                                <motion.div
+                                    drag
+                                    dragSnapToOrigin={true}
+                                    dragElastic={0.6}
+                                    onDragStart={() => handleDragStart(partner.id)}
+                                    onDragEnd={handleDragEnd}
+                                    transition={{
+                                        type: 'spring',
+                                        stiffness: 400,
+                                        damping: 20,
+                                    }}
+                                    className="cursor-grab active:cursor-grabbing select-none outline-none touch-none"
+                                    style={{ touchAction: 'none' }}
+                                >
+                                    <div className="group relative touch-none">
+                                        <div className="absolute -inset-2 sm:-inset-2.5 rounded-full blur-xl bg-blue-400/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                                    <div
-                                        className={`relative ${partner.sizeClass} bg-white rounded-full p-1 sm:p-1 shadow-xl border border-slate-100 flex items-center justify-center transition-all duration-300 ${isSelected
-                                                ? 'scale-125 shadow-[0_0_25px_rgba(37,99,235,0.8)] z-30'
-                                                : 'group-hover:scale-120 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]'
-                                            }`}
-                                    >
-                                        <img
-                                            src={partner.img}
-                                            alt={`Partner Logo ${index + 1}`}
-                                            className="w-full h-full object-contain rounded-full pointer-events-none select-none"
-                                        />
+                                        <div
+                                            className={`relative ${partner.sizeClass} bg-white rounded-full p-1 sm:p-1 shadow-xl border border-slate-100 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]`}
+                                        >
+                                            <img
+                                                src={partner.img}
+                                                alt={`Partner Logo ${index + 1}`}
+                                                className="w-full h-full object-contain rounded-full pointer-events-none select-none"
+                                            />
+                                        </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                         );
                     })}

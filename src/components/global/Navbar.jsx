@@ -10,7 +10,7 @@ const Navbar = () => {
     const desktopDropdownRef = useRef(null);
 
     const navLinks = [
-        { name: 'About', to: '/about' },
+        { name: 'About us', to: '/about' },
         { name: 'icpl', to: '/icpl' },
         { name: 'Cricket', to: '/cricket' },
         { name: 'be a partner', to: '/partner' },
@@ -174,7 +174,7 @@ const Navbar = () => {
                                 key={link.name}
                                 to={link.to}
                                 className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors relative py-2 ${isActive
+                                    `text-sm font-medium transition-colors uppercase relative py-2 ${isActive
                                         ? 'text-gray-900 font-semibold'
                                         : 'text-gray-500 hover:text-gray-900'
                                     }`
@@ -225,7 +225,7 @@ const Navbar = () => {
                             key={link.name}
                             to={link.to}
                             className={({ isActive }) =>
-                                `flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                `flex items-center uppercase justify-between px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                 }`
                             }
                             onClick={() => setIsSidebarOpen(false)}

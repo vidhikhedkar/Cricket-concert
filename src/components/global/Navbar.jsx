@@ -199,7 +199,7 @@ const Navbar = () => {
                         <button className="text-gray-700 hover:text-gray-900 transition-colors" aria-label="Profile">
                             <FiUser className="w-5 h-5" />
                         </button>
-                        <button className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-medium text-white bg-[#07162C] hover:bg-[#0b2244] transition-colors">
+                        <button className="hidden sm:inline-flex items-center justify-center uppercase px-5 py-2.5 rounded-lg text-sm font-medium text-white bg-[#07162C] hover:bg-[#0b2244] transition-colors">
                             Join us
                         </button>
                     </div>

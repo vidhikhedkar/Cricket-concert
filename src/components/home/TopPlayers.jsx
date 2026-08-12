@@ -320,7 +320,7 @@ const TopPlayers = () => {
                                         <span className="text-[#0A2540]/50">
                                             ICC Rating
                                         </span>
-                                        <span className="text-[#0B5FFF] font-bold">
+                                        <span className="text-[#142546] font-bold">
                                             {player.rating}
                                         </span>
                                     </div>

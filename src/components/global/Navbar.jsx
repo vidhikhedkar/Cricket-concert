@@ -10,7 +10,7 @@ const Navbar = () => {
     const desktopDropdownRef = useRef(null);
 
     const navLinks = [
-        { name: 'About', to: '/about' },
+        { name: 'About us', to: '/about' },
         { name: 'icpl', to: '/icpl' },
         { name: 'Cricket', to: '/cricket' },
         { name: 'be a partner', to: '/partner' },
@@ -117,7 +117,7 @@ const Navbar = () => {
                                                             key={link.name}
                                                             to={link.to}
                                                             className={({ isActive }) =>
-                                                                `flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                                                `flex items-center justify-between uppercase px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                                                 }`
                                                             }
                                                             onClick={() => setIsDesktopDropdownOpen(false)}
@@ -145,7 +145,7 @@ const Navbar = () => {
                                                             key={link.name}
                                                             to={link.to}
                                                             className={({ isActive }) =>
-                                                                `flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                                                `flex items-center justify-between uppercase px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                                                 }`
                                                             }
                                                             onClick={() => setIsDesktopDropdownOpen(false)}
@@ -174,7 +174,7 @@ const Navbar = () => {
                                 key={link.name}
                                 to={link.to}
                                 className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors relative py-2 ${isActive
+                                    `text-sm font-medium transition-colors uppercase relative py-2 ${isActive
                                         ? 'text-gray-900 font-semibold'
                                         : 'text-gray-500 hover:text-gray-900'
                                     }`
@@ -199,7 +199,7 @@ const Navbar = () => {
                         <button className="text-gray-700 hover:text-gray-900 transition-colors" aria-label="Profile">
                             <FiUser className="w-5 h-5" />
                         </button>
-                        <button className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-medium text-white bg-[#07162C] hover:bg-[#0b2244] transition-colors">
+                        <button className="hidden sm:inline-flex items-center justify-center uppercase px-5 py-2.5 rounded-lg text-sm font-medium text-white bg-[#07162C] hover:bg-[#0b2244] transition-colors">
                             Join us
                         </button>
                     </div>
@@ -225,7 +225,7 @@ const Navbar = () => {
                             key={link.name}
                             to={link.to}
                             className={({ isActive }) =>
-                                `flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                `flex items-center uppercase justify-between px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                 }`
                             }
                             onClick={() => setIsSidebarOpen(false)}
@@ -290,7 +290,7 @@ const Navbar = () => {
                                         key={link.name}
                                         to={link.to}
                                         className={({ isActive }) =>
-                                            `flex items-center justify-between px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                            `flex items-center justify-between uppercase px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                             }`
                                         }
                                         onClick={() => setIsDropdownOverlayOpen(false)}
@@ -318,7 +318,7 @@ const Navbar = () => {
                                         key={link.name}
                                         to={link.to}
                                         className={({ isActive }) =>
-                                            `flex items-center justify-between px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                            `flex items-center justify-between uppercase px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                             }`
                                         }
                                         onClick={() => setIsDropdownOverlayOpen(false)}

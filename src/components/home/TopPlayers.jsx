@@ -247,25 +247,31 @@ const TopPlayers = () => {
                                 </div>
                             </div>
 
-                            <div className="px-4 sm:px-5 pb-4 sm:pb-5">
-                                <div className="flex items-center justify-between text-xs font-medium mb-1.5">
-                                    <span className="text-[#0A2540]/40">ICC Rating</span>
-                                    <span className="text-[#0B5FFF] font-bold">
-                                        {player.rating}
-                                    </span>
-                                </div>
-                                <div className="w-full bg-slate-200/60 h-1.5 rounded-full overflow-hidden">
-                                    <div
-                                        className="h-full rounded-full transition-all duration-500 bg-linear-to-r from-[#0052FF] via-[#3B82F6] to-white"
-                                        style={{ width: `${ratingPercentage}%` }}
-                                    />
+                                {/* Rating Progress Bar */}
+                                <div className="px-3.5 sm:px-5 pb-3.5 sm:pb-5">
+                                    <div className="flex items-center justify-between text-[11px] sm:text-xs font-medium mb-1.5">
+                                        <span className="text-[#0A2540]/50">
+                                            ICC Rating
+                                        </span>
+                                        <span className="text-[#142546] font-bold">
+                                            {player.rating}
+                                        </span>
+                                    </div>
+                                    <div className="w-full bg-slate-200/60 h-1.5 rounded-full overflow-hidden">
+                                        <div
+                                            className="h-full rounded-full transition-all duration-500 bg-linear-to-r from-[#050913] via-[#0b2c61] to-white"
+                                            style={{
+                                                width: `${ratingPercentage}%`,
+                                            }}
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import featureImg from '../../assets/home/section3/feature-match.png';
 import india from '../../assets/home/section2/india.png';
 import Australia from '../../assets/home/section2/Australia.png';
@@ -42,6 +42,8 @@ const FeatureMatch = () => {
     seconds: '02'
   });
 
+  const scrollRef = useRef(null);
+
   useEffect(() => {
     const targetDate = new Date('2026-05-28T00:00:00');
     const updateTimer = () => {
@@ -64,6 +66,39 @@ const FeatureMatch = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Automatic Smooth Horizontal Scroll Loop
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    let animationFrameId;
+    let speed = 0.6; // Adjust scrolling speed here
+
+    const scroll = () => {
+      if (container) {
+        container.scrollLeft += speed;
+        // Reset seamlessly when it reaches the halfway point (due to duplicated array)
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+
+    const handleMouseEnter = () => { speed = 0; };
+    const handleMouseLeave = () => { speed = 0.6; };
+
+    container.addEventListener('mouseenter', handleMouseEnter);
+    container.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      container.removeEventListener('mouseenter', handleMouseEnter);
+      container.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
 
   const teams = [
     { name: 'India', flag: india },
@@ -76,6 +111,8 @@ const FeatureMatch = () => {
     { name: 'Bangladesh', flag: Bangladesh }
   ];
 
+  // Duplicate the teams array to create a seamless infinite loop effect
+  const duplicatedTeams = [...teams, ...teams];
 
   return (
     <div className="container font-sans">
@@ -178,11 +215,11 @@ const FeatureMatch = () => {
               Top Teams
             </h3>
 
-            <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
-              {teams.map((team, index) => (
+            <div ref={scrollRef} className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
+              {duplicatedTeams.map((team, index) => (
                 <div
                   key={index}
-                  className="w-10 h-10 sm:w-11 sm:h-11  flex items-center justify-center shrink-0 overflow-hidden  transition-transform cursor-pointer p-1"
+                  className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center shrink-0 overflow-hidden transition-transform cursor-pointer p-1"
                   title={team.name}
                 >
                   <img

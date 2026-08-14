@@ -7,6 +7,7 @@ import './App.css';
 import ScrollToTop from './components/global/ScrollToTop';
 import IcplPage from './pages/IcplPage';
 import Partnerpage from './pages/Partnerpage';
+import InternationalPage from './pages/InternationalPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/icpl" element={<IcplPage />} />
         <Route path="/partner" element={<Partnerpage />} />
+        <Route path="/international" element={<InternationalPage />} />
       </Routes>
       <Footer />
     </>

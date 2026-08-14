@@ -1,29 +1,64 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { FiGlobe, FiMail, FiShare2 } from 'react-icons/fi';
+import logo from '../../assets/global/logo.png';
 
 const Footer = () => {
   return (
     <footer className="w-full bg-white border-t border-slate-100 text-slate-600 font-sans">
-      <div className="container py-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-10 border-b border-slate-100">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-xs">
-            Logo
+      <div className="container py-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-4 border-b border-slate-100">
+
+          {/* Logo and Social Icons grouped on same line for mobile view */}
+          <div className="flex flex-row items-center justify-between w-full lg:w-auto">
+            <Link to="/" className="flex items-center">
+              <img
+                src={logo}
+                alt="Logo"
+                className="w-14 h-14 sm:w-20 sm:h-20 object-contain  hover:opacity-90 transition-opacity"
+              />
+            </Link>
+
+            {/* Social Icons (visible next to logo on mobile, shifted to right on desktop via flex order) */}
+            <div className="flex items-center space-x-3 lg:hidden">
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors"
+                aria-label="Globe"
+              >
+                <FiGlobe className="w-4 h-4" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors"
+                aria-label="Email"
+              >
+                <FiMail className="w-4 h-4" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors"
+                aria-label="Share"
+              >
+                <FiShare2 className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
-          <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
+          {/* Email Newsletter Subscription Section */}
+          <div className="w-full sm:w-auto flex flex-row items-center gap-2 sm:gap-3">
             <input
               type="email"
               placeholder="Email Address"
-              className="w-full sm:w-80 px-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:border-slate-400 text-sm text-slate-700 bg-slate-50/50 placeholder:text-slate-400"
+              className="w-full sm:w-80 px-3 sm:px-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:border-slate-400 text-xs sm:text-sm text-slate-700 bg-slate-50/50 placeholder:text-slate-400"
             />
-            <button className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#0B192C] hover:bg-[#132845] text-white text-sm font-semibold transition-colors shadow-sm">
+            <button className="whitespace-nowrap px-4 sm:px-6 py-2.5 rounded-lg bg-[#0B192C] hover:bg-[#132845] text-white text-xs sm:text-sm font-semibold transition-colors shadow-sm">
               Subscribe
             </button>
           </div>
 
-
-          <div className="flex items-center space-x-3">
+          {/* Social Icons for Desktop View */}
+          <div className="hidden lg:flex items-center space-x-3">
             <a
               href="#"
               className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors"
@@ -46,8 +81,8 @@ const Footer = () => {
               <FiShare2 className="w-4 h-4" />
             </a>
           </div>
-        </div>
 
+        </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 py-10 border-b border-slate-100 text-sm">
           <div>
@@ -105,7 +140,6 @@ const Footer = () => {
           </div>
         </div>
 
-
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 text-xs text-slate-400 gap-4">
           <div>
             © {new Date().getFullYear()} International Cricket Premier League. All rights reserved.
@@ -122,7 +156,6 @@ const Footer = () => {
             <NavLink to="/sitemap" className="hover:text-slate-700 transition-colors">Sitemap</NavLink>
           </div>
         </div>
-
       </div>
     </footer>
   );

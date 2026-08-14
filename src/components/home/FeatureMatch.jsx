@@ -165,7 +165,7 @@ const FeatureMatch = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-4 bg-white p-5 sm:p-6 rounded-2xl overflow-hidden shadow-gray-400 shadow-2xl border border-slate-100 flex flex-col justify-between">
+        <div className="sm:my-0 my-5 lg:col-span-4 bg-white p-5 sm:p-6 rounded-2xl overflow-hidden shadow-gray-400 shadow-2xl border border-slate-100 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#111C2D] mb-4 tracking-wide">
               Tournaments Countdown

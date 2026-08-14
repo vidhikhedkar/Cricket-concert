@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { FiSearch, FiUser, FiMenu, FiX, FiChevronDown, FiChevronUp, FiChevronRight, FiHome, FiRadio, FiCalendar, FiGrid, FiBarChart2, FiUsers, FiAward, FiFileText, FiImage, FiVideo } from 'react-icons/fi';
+import logo from '../../assets/global/logo.png';
 
 const Navbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -15,7 +16,6 @@ const Navbar = () => {
         { name: 'be a partner', to: '/partner' },
         { name: 'contact us', to: '/contact' },
     ];
-
 
     const quickAccessLinks = [
         { name: 'Home', to: '/', icon: FiHome },
@@ -33,7 +33,6 @@ const Navbar = () => {
         { name: 'Gallery', to: '/gallery', icon: FiImage },
         { name: 'Videos', to: '/videos', icon: FiVideo },
     ];
-
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -57,23 +56,6 @@ const Navbar = () => {
         };
     }, []);
 
-
-
-    // Prevent background scrolling when mobile overlays are open
-    
-    // useEffect(() => {
-    //     if (isSidebarOpen || isDropdownOverlayOpen || isDesktopDropdownOpen) {
-    //         document.body.style.overflow = 'hidden';
-    //     } else {
-    //         document.body.style.overflow = 'unset';
-    //     }
-    //     return () => {
-    //         document.body.style.overflow = 'unset';
-    //     };
-    // }, [isSidebarOpen, isDropdownOverlayOpen, isDesktopDropdownOpen]);
-
-
-
     return (
         <nav className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
             <div className="container">
@@ -87,9 +69,28 @@ const Navbar = () => {
                             <FiMenu className="w-7 h-7" />
                         </button>
 
-                        <div className="relative flex items-center" ref={desktopDropdownRef}>
-                            <div
-                                className="flex items-center space-x-1 sm:space-x-2 cursor-pointer select-none py-2"
+                        <div className="relative flex items-center space-x-1 sm:space-x-2" ref={desktopDropdownRef}>
+                            {/* Logo linking to Home Page */}
+                            <Link 
+                                to="/" 
+                                className="flex items-center"
+                                onClick={() => {
+                                    setIsDesktopDropdownOpen(false);
+                                    setIsDropdownOverlayOpen(false);
+                                }}
+                            >
+                                <img
+                                    src={logo}
+                                    alt="Logo"
+                                    className="w-15 h-15 sm:w-20 sm:h-20 object-contain hover:opacity-90 transition-opacity"
+                                />
+                            </Link>
+
+                            {/* Chevron button to trigger the dropdown menu */}
+                            <button
+                                type="button"
+                                className="p-1 text-gray-600 hover:text-gray-900 focus:outline-none"
+                                aria-label="Toggle Quick Navigation"
                                 onClick={() => {
                                     if (window.innerWidth < 768) {
                                         setIsDropdownOverlayOpen(true);
@@ -98,12 +99,8 @@ const Navbar = () => {
                                     }
                                 }}
                             >
-                                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-xs">
-                                    Logo
-                                </div>
-                                <FiChevronDown className={`w-4 h-4 text-gray-600 transition-transform duration-200 ${isDesktopDropdownOpen ? 'rotate-180' : ''}`} />
-                            </div>
-
+                                <FiChevronDown className={`w-4 h-4 transition-transform duration-200 ${isDesktopDropdownOpen ? 'rotate-180' : ''}`} />
+                            </button>
 
                             {isDesktopDropdownOpen && (
                                 <div className="absolute top-12 md:top-14 left-0 lg:-left-12 w-72 md:w-80 bg-[#05142c] border border-blue-900/60 rounded-xl shadow-2xl py-3 z-50 text-white">
@@ -209,6 +206,7 @@ const Navbar = () => {
                 </div>
             </div>
 
+            {/* Mobile Sidebar */}
             <div className={`fixed inset-0 bg-[#05142c] text-white z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className="flex items-center justify-between px-4 py-4 border-b border-blue-900/60">
                     <span className="font-bold text-lg tracking-wider text-[#00E5FF]">Menu</span>
@@ -249,16 +247,25 @@ const Navbar = () => {
                 </div>
             </div>
 
-
+            {/* Mobile Overlay Navigation */}
             <div className={`fixed inset-0 bg-[#05142c] text-white z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${isDropdownOverlayOpen ? 'translate-y-0' : '-translate-y-full'}`}>
                 <div className="flex items-center justify-between px-4 py-4 border-b border-blue-900/60">
                     <div className="w-7"></div>
-                    <div
-                        className="flex items-center space-x-2 cursor-pointer"
-                        onClick={() => setIsDropdownOverlayOpen(false)}
-                    >
-                        <span className="font-bold text-lg tracking-wider italic">Logo</span>
-                        <FiChevronUp className="w-4 h-4 text-white" />
+                    <div className="flex items-center space-x-2">
+                        <Link 
+                            to="/" 
+                            onClick={() => setIsDropdownOverlayOpen(false)} 
+                            className="flex items-center"
+                        >
+                            <img src={logo} alt="Logo" className="w-12 h-12 object-contain" />
+                        </Link>
+                        <button 
+                            onClick={() => setIsDropdownOverlayOpen(false)} 
+                            className="text-white focus:outline-none"
+                            aria-label="Close Overlay"
+                        >
+                            <FiChevronUp className="w-4 h-4" />
+                        </button>
                     </div>
 
                     <button
@@ -269,7 +276,6 @@ const Navbar = () => {
                         <FiX className="w-7 h-7" />
                     </button>
                 </div>
-
 
                 <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
                     <div>
@@ -328,7 +334,6 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-
 
                 <div className="p-4 border-t border-blue-900/60 bg-[#05142c] text-center">
                     <button

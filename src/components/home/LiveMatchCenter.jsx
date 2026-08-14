@@ -56,7 +56,6 @@ const matchesData = [
     },
 ];
 
-
 const BatIcon = () => (
     <svg
         className="w-5 h-5 text-amber-500"
@@ -76,12 +75,14 @@ const BatIcon = () => (
 const LiveMatchCenter = () => {
     const scrollRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [isPaused, setIsPaused] = useState(false);
-    const isDragging = useRef(false);
+
+    // Interaction tracking without causing unnecessary re-renders
+    const isInteracting = useRef(false);
+    const isMouseDown = useRef(false);
     const startX = useRef(0);
     const scrollLeftStart = useRef(0);
-    const loopedMatches = [...matchesData, ...matchesData, ...matchesData];
 
+    const loopedMatches = [...matchesData, ...matchesData, ...matchesData];
 
     const getCardWidth = () => {
         if (!scrollRef.current) return 336;
@@ -92,22 +93,24 @@ const LiveMatchCenter = () => {
         return firstCard.offsetWidth + gap;
     };
 
-
     const handleScroll = () => {
         if (!scrollRef.current) return;
         const { scrollLeft, scrollWidth } = scrollRef.current;
         const singleSetWidth = scrollWidth / 3;
-        if (scrollLeft <= 0) {
-            scrollRef.current.scrollLeft = singleSetWidth;
-        } else if (scrollLeft >= singleSetWidth * 2) {
+
+        // Infinite seamless loop boundary check
+        if (scrollLeft <= 10) {
+            scrollRef.current.scrollLeft = singleSetWidth + scrollLeft;
+        } else if (scrollLeft >= singleSetWidth * 2 - 10) {
             scrollRef.current.scrollLeft = singleSetWidth;
         }
+
         const cardWidth = getCardWidth();
         const index = Math.round((scrollLeft % singleSetWidth) / cardWidth);
         setActiveIndex(index % matchesData.length);
     };
 
-
+    // Center initial scroll position on mount
     useEffect(() => {
         if (scrollRef.current) {
             const singleSetWidth = scrollRef.current.scrollWidth / 3;
@@ -115,70 +118,61 @@ const LiveMatchCenter = () => {
         }
     }, []);
 
-
-
+    // Robust Auto-Scroll Timer
     useEffect(() => {
-        if (isPaused) return;
         const interval = setInterval(() => {
-            if (scrollRef.current) {
+            if (scrollRef.current && !isInteracting.current && !isMouseDown.current) {
                 const cardWidth = getCardWidth();
+                scrollRef.current.style.scrollBehavior = 'smooth';
                 scrollRef.current.scrollBy({
                     left: cardWidth,
                     behavior: 'smooth',
                 });
             }
-        }, 3000); 
+        }, 3500);
+
         return () => clearInterval(interval);
-    }, [isPaused]);
-
-
-    const scroll = (direction) => {
-        if (!scrollRef.current) return;
-        const scrollAmount = getCardWidth();
-        scrollRef.current.scrollBy({
-            left: direction === 'next' ? scrollAmount : -scrollAmount,
-            behavior: 'smooth',
-        });
-    };
-
+    }, []);
 
     const scrollToCard = (index) => {
         if (!scrollRef.current) return;
         const singleSetWidth = scrollRef.current.scrollWidth / 3;
         const cardAmount = getCardWidth();
+        scrollRef.current.style.scrollBehavior = 'smooth';
         scrollRef.current.scrollTo({
             left: singleSetWidth + index * cardAmount,
             behavior: 'smooth',
         });
     };
 
-
+    // Desktop Mouse Drag Handling
     const handleMouseDown = (e) => {
-        isDragging.current = true;
-        setIsPaused(true);
+        if (!scrollRef.current) return;
+        isMouseDown.current = true;
+        isInteracting.current = true;
         startX.current = e.pageX - scrollRef.current.offsetLeft;
         scrollLeftStart.current = scrollRef.current.scrollLeft;
-        scrollRef.current.style.cursor = 'grabbing';
+
+        scrollRef.current.style.scrollSnapType = 'none';
+        scrollRef.current.style.scrollBehavior = 'auto';
     };
 
-
-    const handleMouseLeaveOrUp = () => {
-        isDragging.current = false;
-        setIsPaused(false);
+    const handleMouseUpOrLeave = () => {
+        isMouseDown.current = false;
+        isInteracting.current = false;
         if (scrollRef.current) {
-            scrollRef.current.style.cursor = 'grab';
+            scrollRef.current.style.scrollSnapType = 'x mandatory';
+            scrollRef.current.style.scrollBehavior = 'smooth';
         }
     };
 
-
     const handleMouseMove = (e) => {
-        if (!isDragging.current || !scrollRef.current) return;
+        if (!isMouseDown.current || !scrollRef.current) return;
         e.preventDefault();
         const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX.current) * 1.5;
+        const walk = x - startX.current;
         scrollRef.current.scrollLeft = scrollLeftStart.current - walk;
     };
-
 
     return (
         <div className="container py-4 sm:py-14 font-sans select-none overflow-hidden">
@@ -194,22 +188,31 @@ const LiveMatchCenter = () => {
                 </div>
             </div>
 
-
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={handleMouseLeaveOrUp}
+                onMouseEnter={() => {
+                    isInteracting.current = true;
+                }}
+                onMouseLeave={handleMouseUpOrLeave}
                 onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseLeaveOrUp}
+                onMouseUp={handleMouseUpOrLeave}
                 onMouseMove={handleMouseMove}
-                className="-mx-4 px-4 sm:mx-0 sm:px-0 flex gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1  snap-x snap-mandatory scrollbar-none touch-pan-x"
+                onTouchStart={() => {
+                    isInteracting.current = true;
+                }}
+                onTouchEnd={() => {
+                    isInteracting.current = false;
+                }}
+                className="-mx-4 px-4 sm:mx-0 sm:px-0 flex gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-none cursor-grab active:cursor-grabbing"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 {loopedMatches.map((match, idx) => (
                     <div
                         key={`${match.id}-${idx}`}
-                        className={`w-[82vw] min-w-65 max-w-75 sm:w-[320px] sm:max-w-none shrink-0 snap-center sm:snap-start bg-[#F2F6FF] backdrop-blur border border-[#C5C6D2]/30 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden relative ${match.isHighlighted ? 'bg-linear-to-br from-slate-50 via-blue-50/40 to-slate-50' : ''
+                        className={`w-[82vw] min-w-65 max-w-75 sm:w-[320px] sm:max-w-none shrink-0 snap-always snap-center sm:snap-start bg-[#F2F6FF] backdrop-blur border border-[#C5C6D2]/30 rounded-2xl shadow-xs hover:shadow-md transition-shadow duration-200 overflow-hidden relative ${match.isHighlighted
+                                ? 'bg-linear-to-br from-slate-50 via-blue-50/40 to-slate-50'
+                                : ''
                             }`}
                     >
                         {match.statusType === 'live' && (
@@ -240,7 +243,7 @@ const LiveMatchCenter = () => {
                                         <img
                                             src={match.team1.flag}
                                             alt={`${match.team1.code} flag`}
-                                            className="w-5 h-5 sm:w-6 sm:h-6 object-cover rounded-full border border-slate-200 shadow-xs"
+                                            className="w-5 h-5 sm:w-6 sm:h-6 object-cover rounded-full border border-slate-200 shadow-xs pointer-events-none"
                                         />
                                     </div>
                                     <span className="text-[11px] sm:text-xs text-[#444650] font-medium mt-1">
@@ -263,7 +266,7 @@ const LiveMatchCenter = () => {
                                         <img
                                             src={match.team2.flag}
                                             alt={`${match.team2.code} flag`}
-                                            className="w-5 h-5 sm:w-6 sm:h-6 object-cover rounded-full border border-slate-200 shadow-xs"
+                                            className="w-5 h-5 sm:w-6 sm:h-6 object-cover rounded-full border border-slate-200 shadow-xs pointer-events-none"
                                         />
                                         <span className="text-xl sm:text-2xl font-black tracking-tight text-[#444650]/50">
                                             {match.team2.code}
@@ -291,8 +294,8 @@ const LiveMatchCenter = () => {
                         key={idx}
                         onClick={() => scrollToCard(idx)}
                         className={`transition-all duration-300 cursor-pointer rounded-full h-1.5 sm:h-2 ${activeIndex === idx
-                            ? 'w-6 sm:w-8 bg-slate-800'
-                            : 'w-1.5 sm:w-2 bg-slate-300 hover:bg-slate-400'
+                                ? 'w-6 sm:w-8 bg-slate-800'
+                                : 'w-1.5 sm:w-2 bg-slate-300 hover:bg-slate-400'
                             }`}
                         aria-label={`Go to slide ${idx + 1}`}
                     />

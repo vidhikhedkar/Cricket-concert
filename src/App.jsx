@@ -10,7 +10,10 @@ import IcplPage from './pages/IcplPage';
 function App() {
   return (
     <>
+
       <Navbar />
+      <ScrollToTop />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

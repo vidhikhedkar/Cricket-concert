@@ -30,7 +30,7 @@ const IcplCta = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
           {/* Solid Button */}
-          <button className="w-full sm:w-auto bg-white hover:bg-gray-100 text-[#0A192F] font-bold px-8 py-4 rounded-lg shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer">
+          <button className="w-full sm:w-auto bg-white hover:bg-gray-100 text-[#0A192F] font-bold px-8 py-4 rounded-lg shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointerass">
             Become a Partner
           </button>
 

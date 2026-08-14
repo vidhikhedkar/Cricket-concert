@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage';
 import './App.css';
 import ScrollToTop from './components/global/ScrollToTop';
 import IcplPage from './pages/IcplPage';
+import Partnerpage from './pages/Partnerpage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/icpl" element={<IcplPage />} />
+        <Route path="/partner" element={<Partnerpage />} />
       </Routes>
       <Footer />
     </>

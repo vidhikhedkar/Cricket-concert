@@ -1,7 +1,7 @@
 import React from 'react';
-import hero from '../../assets/contact/section1/Internationalhero.png';
+import hero from '../../assets/contact/section1/contacthero.png';
 
-const InternationalHero = () => {
+const ContactHero = () => {
   return (
     <section className="relative w-full h-[65vh] sm:h-[75vh] lg:h-[85vh] min-h-125 flex items-center justify-center overflow-hidden bg-gray-950">
       {/* Background Image with Dark Overlay */}
@@ -40,4 +40,4 @@ const InternationalHero = () => {
   );
 };
 
-export default InternationalHero;
+export default ContactHero;

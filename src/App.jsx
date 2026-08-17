@@ -10,6 +10,7 @@ import Partnerpage from './pages/Partnerpage';
 import ContactusPage from './pages/ContactusPage';
 import CricketPage from './pages/CricketPage';
 import DomesticPage from './pages/DomesticPage';
+import InternationalPage from './pages/InternationalPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<ContactusPage />} />
         <Route path="/cricket" element={<CricketPage />} />
         <Route path="/domestic" element={<DomesticPage />} />
+        <Route path="/international" element={<InternationalPage />} />
       </Routes>
       <Footer />
     </>

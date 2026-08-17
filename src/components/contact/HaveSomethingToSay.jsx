@@ -1,5 +1,5 @@
 import React from 'react';
-import Havesomething from '../../assets/international/section8/Havesomething.png';
+import Havesomething from '../../assets/contact/section8/Havesomething.png';
 
 const HaveSomethingToSay = () => {
   return (

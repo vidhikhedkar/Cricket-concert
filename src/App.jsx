@@ -7,7 +7,7 @@ import './App.css';
 import ScrollToTop from './components/global/ScrollToTop';
 import IcplPage from './pages/IcplPage';
 import Partnerpage from './pages/Partnerpage';
-import InternationalPage from './pages/InternationalPage';
+import ContactusPage from './pages/ContactusPage';
 import CricketPage from './pages/CricketPage';
 import DomesticPage from './pages/DomesticPage';
 
@@ -23,7 +23,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/icpl" element={<IcplPage />} />
         <Route path="/partner" element={<Partnerpage />} />
-        <Route path="/international" element={<InternationalPage />} />
+        <Route path="/contact" element={<ContactusPage />} />
         <Route path="/cricket" element={<CricketPage />} />
         <Route path="/domestic" element={<DomesticPage />} />
       </Routes>

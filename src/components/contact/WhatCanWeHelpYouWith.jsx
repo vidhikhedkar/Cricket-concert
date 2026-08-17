@@ -1,10 +1,10 @@
 import React from 'react';
-import Academy from '../../assets/international/section3/Academy.jpg';
-import careers from '../../assets/international/section3/careers.jpg';
-import CricketMatches from '../../assets/international/section3/CricketMatches.jpg';
-import Media from '../../assets/international/section3/Media.jpg';
-import Tournments from '../../assets/international/section3/Tournments.jpg';
-import Partnership from '../../assets/international/section3/Partnership.jpg';
+import Academy from '../../assets/contact/section3/Academy.jpg';
+import careers from '../../assets/contact/section3/careers.jpg';
+import CricketMatches from '../../assets/contact/section3/CricketMatches.jpg';
+import Media from '../../assets/contact/section3/Media.jpg';
+import Tournments from '../../assets/contact/section3/Tournments.jpg';
+import Partnership from '../../assets/contact/section3/Partnership.jpg';
 
 const WhatCanWeHelpYouWith = () => {
   const items = [

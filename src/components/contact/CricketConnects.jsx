@@ -1,5 +1,5 @@
 import React from 'react';
-import cricket from '../../assets/international/section4/CricketConnect.png';
+import cricket from '../../assets/contact/section4/CricketConnect.png';
 
 const CricketConnects = () => {
   const offices = [

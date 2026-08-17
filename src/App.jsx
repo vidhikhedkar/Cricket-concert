@@ -8,6 +8,7 @@ import ScrollToTop from './components/global/ScrollToTop';
 import IcplPage from './pages/IcplPage';
 import Partnerpage from './pages/Partnerpage';
 import InternationalPage from './pages/InternationalPage';
+import CricketPage from './pages/CricketPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/icpl" element={<IcplPage />} />
         <Route path="/partner" element={<Partnerpage />} />
         <Route path="/international" element={<InternationalPage />} />
+        <Route path="/cricket" element={<CricketPage />} />
       </Routes>
       <Footer />
     </>

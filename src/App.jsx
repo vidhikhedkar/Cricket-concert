@@ -11,6 +11,7 @@ import ContactusPage from './pages/ContactusPage';
 import CricketPage from './pages/CricketPage';
 import DomesticPage from './pages/DomesticPage';
 import InternationalPage from './pages/InternationalPage';
+import WomensCricketpage from './pages/WomensCricketpage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/cricket" element={<CricketPage />} />
         <Route path="/domestic" element={<DomesticPage />} />
         <Route path="/international" element={<InternationalPage />} />
+        <Route path="/womens-cricket" element={<WomensCricketpage />} />
       </Routes>
       <Footer />
     </>

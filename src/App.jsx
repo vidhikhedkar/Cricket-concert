@@ -12,6 +12,8 @@ import CricketPage from './pages/CricketPage';
 import DomesticPage from './pages/DomesticPage';
 import InternationalPage from './pages/InternationalPage';
 import WomensCricketpage from './pages/WomensCricketpage';
+import YouthPage from './pages/YouthPage';
+import SponsorsPage from './pages/SponsorsPage';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path="/domestic" element={<DomesticPage />} />
         <Route path="/international" element={<InternationalPage />} />
         <Route path="/womens-cricket" element={<WomensCricketpage />} />
+        <Route path="/youth" element={<YouthPage />} />
+        <Route path="/sponsors" element={<SponsorsPage />} />
       </Routes>
       <Footer />
     </>

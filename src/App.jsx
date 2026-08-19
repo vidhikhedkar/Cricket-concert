@@ -14,6 +14,9 @@ import InternationalPage from './pages/InternationalPage';
 import WomensCricketpage from './pages/WomensCricketpage';
 import YouthPage from './pages/YouthPage';
 import SponsorsPage from './pages/SponsorsPage';
+import SubPartnerPage from './pages/SubPartnerPage';
+import InvestorsPage from './pages/InvestorsPage';
+import MediaPage from './pages/MediaPage';
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
         <Route path="/womens-cricket" element={<WomensCricketpage />} />
         <Route path="/youth" element={<YouthPage />} />
         <Route path="/sponsors" element={<SponsorsPage />} />
+        <Route path="/subpartner" element={<SubPartnerPage />} />
+        <Route path="/investors" element={<InvestorsPage />} />
+        <Route path="/media" element={<MediaPage />} />
       </Routes>
       <Footer />
     </>

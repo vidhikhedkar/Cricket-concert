@@ -41,7 +41,7 @@ const UpcomingInternationalEvents = () => {
             </p>
           </div>
           <Link
-            to="#calendar"
+            to="/calendar"
             className="inline-flex items-center text-sm font-semibold text-[#00389E] hover:text-blue-700 transition-colors group"
           >
             <span>View Full Calendar</span>

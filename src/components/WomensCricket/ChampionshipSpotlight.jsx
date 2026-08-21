@@ -3,18 +3,20 @@ import { motion } from 'framer-motion';
 import { FaChartLine } from 'react-icons/fa';
 import Spotlight from '../../assets/WomensCricket/section3/ChampionshipSpotlight.jpg';
 
+
 const ChampionshipSpotlight = () => {
+
   const topTeams = [
     { name: "Mumbai Indians", rank: "Rank 1" },
     { name: "Delhi Capitals", rank: "Rank 2" },
     { name: "RCB Women", rank: "Rank 3" },
   ];
 
+
   return (
     <section className="bg-white py-12 relative overflow-hidden">
       <div className="container">
 
-        {/* Section Header */}
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#1C1B1B] uppercase">
             Championship Spotlight
@@ -26,7 +28,7 @@ const ChampionshipSpotlight = () => {
 
         {/* Grid Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
+
           {/* Left Live Match Banner Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,7 +67,7 @@ const ChampionshipSpotlight = () => {
 
           {/* Right Column (Stack: Viewership & Top Teams) */}
           <div className="lg:col-span-4 flex flex-col gap-6 justify-between">
-            
+
             {/* Record Viewership Card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -78,7 +80,7 @@ const ChampionshipSpotlight = () => {
                 <div className="w-12 h-12 rounded-full bg-[#F43F5E]/10 flex items-center justify-center text-[#F43F5E] mb-4 shadow-xs">
                   <FaChartLine className="text-sm" />
                 </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#1C1B1B] tracking-tight mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1C1B1B] tracking-tight mb-2">
                   Record Viewership
                 </h3>
                 <p className="text-xs sm:text-sm text-[#444748] leading-relaxed">

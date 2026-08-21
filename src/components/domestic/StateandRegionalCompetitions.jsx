@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdShield, MdOutlineTimer, MdStars, MdOutlineShield } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const StateandRegionalCompetitions = () => {
   const competitions = [
@@ -63,10 +64,12 @@ const StateandRegionalCompetitions = () => {
                 <span className="font-regular text-[#434654] tracking-wider">
                   {item.months}
                 </span>
-                <a href="#view" className="text-[#00389E] font-regular hover:underline flex items-center space-x-1">
+
+                <Link
+                 to="/view" className="text-[#00389E] font-regular hover:underline flex items-center space-x-1">
                   <span>View</span>
                   <span>→</span>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

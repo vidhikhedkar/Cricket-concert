@@ -43,7 +43,7 @@ const InternationalLatestNews = () => {
           Latest News
         </h2>
         <Link
-          to="#all-news"
+          to="/all-news"
           className="text-sm font-bold text-[#0B1E48] uppercase tracking-wider hover:underline border-b border-[#0B1E48] pb-0.5"
         >
           ALL NEWS

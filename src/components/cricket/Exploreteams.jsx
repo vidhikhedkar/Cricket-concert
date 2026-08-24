@@ -87,7 +87,7 @@ const Exploreteams = () => {
 
         {/* Header */}
         <div className="mb-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#191B23] tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-4xl font-bold text-[#191B23] tracking-tight mb-2">
             Explore Teams & Players
           </h2>
           <p className="text-[#434654] text-sm sm:text-base">

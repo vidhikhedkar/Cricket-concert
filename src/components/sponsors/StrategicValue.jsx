@@ -45,7 +45,7 @@ const StrategicValue = () => {
           <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#00389E] mb-3 block">
             STRATEGIC VALUE
           </span>
-          <h2 className="text-3xl sm:text-4xl  font-bold tracking-tight text-[#191B23] uppercase">
+          <h2 className="text-2xl sm:text-4xl  font-bold tracking-tight text-[#191B23] uppercase">
             Why Partner With ICPL?
           </h2>
         </div>
@@ -61,16 +61,17 @@ const StrategicValue = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white rounded-xl p-8 sm:p-10 border border-[#C3C5D7]/30 flex flex-col justify-start"
             >
-              {/* Icon */}
-              <div className="w-10 h-10 rounded-full bg-[#0A192F] flex items-center justify-center mb-6 shadow-md">
-                {card.icon}
+              <div className="flex flex-row sm:flex-col items-center sm:items-start gap-4 sm:gap-0 mb-4 sm:mb-6">
+                {/* Icon */}
+                <div className="w-10 h-10 rounded-full bg-[#0A192F] flex items-center justify-center mb-6 shadow-md">
+                  {card.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-[#191B23] tracking-tight mb-3">
+                  {card.title}
+                </h3>
               </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-[#191B23] tracking-tight mb-3">
-                {card.title}
-              </h3>
-
               {/* Description */}
               <p className="text-xs sm:text-sm text-[#434654] font-regular leading-relaxed">
                 {card.description}

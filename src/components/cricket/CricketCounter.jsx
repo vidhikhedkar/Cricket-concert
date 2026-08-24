@@ -85,7 +85,7 @@ const CricketCounter = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 
         {/* Counter Card Container */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-0 items-center">
           {stats.map((stat, index) => (
             <div
               key={index}

@@ -9,9 +9,8 @@ const BuildingCricketTogether = () => {
 
                     {/* Left Text Content */}
                     <div className="lg:col-span-6 flex flex-col justify-center">
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A192F] tracking-tight leading-[1.15] mb-6">
-                            BUILDING CRICKET <br />
-                            TOGETHER
+                        <h2 className="text-xl sm:text-3xl lg:text-4xl sm:max-w-80 w-full font-bold text-[#0A192F] tracking-tight leading-[1.15] mb-6">
+                            BUILDING CRICKET   TOGETHER
                         </h2>
 
                         <p className="text-[#434654] text-base sm:text-lg leading-relaxed mb-6">

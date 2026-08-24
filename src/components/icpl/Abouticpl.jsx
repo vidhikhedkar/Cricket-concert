@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const AboutIcpl = () => {
   return (
     <section
-      className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center"
+      className="w-full bg-white py-12 flex items-center justify-center"
       aria-label="About ICPL Section"
     >
       <div className="container  grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">

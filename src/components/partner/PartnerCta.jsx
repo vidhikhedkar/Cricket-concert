@@ -17,8 +17,8 @@ const PartnerCta = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
 
         {/* Main Heading */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15] max-w-3xl mb-4 uppercase">
-          LET'S BUILD THE FUTURE <br />
+        <h2 className="text-2xl sm:text-4xl sm:max-w-110 w-full font-bold text-white tracking-tight leading-[1.15] max-w-3xl mb-4 uppercase">
+          LET'S BUILD THE FUTURE 
           OF CRICKET
         </h2>
 
@@ -28,7 +28,7 @@ const PartnerCta = () => {
         </p>
 
         {/* Action Button */}
-        <button className="bg-white hover:bg-gray-100 text-[#0A192F] font-bold text-xs sm:text-sm tracking-wider uppercase px-8 py-4 rounded-lg shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+        <button className="bg-white hover:bg-gray-100 text-[#0A192F] font-bold text-xs sm:text-sm tracking-wider uppercase px-8 py-4 rounded-lg shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer">
           BECOME A PARTNER
         </button>
 

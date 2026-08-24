@@ -28,8 +28,8 @@ const TheWccGrowthStory = () => {
       <div className="container mx-auto px-4 relative">
 
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase">
+        <div className="text-center sm:mb-16 mb-10">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase">
             THE WCC GROWTH STORY
           </h2>
         </div>

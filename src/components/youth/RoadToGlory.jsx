@@ -24,9 +24,9 @@ const RoadToGlory = () => {
       <div className="container">
 
         {/* Section Header */}
-        <div className="mb-8 max-w-xl">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0B1F4D] uppercase leading-tight mb-5">
-            ROAD TO<br />GLORY
+        <div className="mb-8 sm:max-w-xl max-w-sm">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl sm:max-w-60 w-full font-extrabold tracking-tight text-[#0B1F4D] uppercase leading-tight mb-5">
+            ROAD TO GLORY
           </h2>
           <p className="text-sm sm:text-base text-[#444748] font-regular leading-relaxed">
             Explore the premier youth tournaments shaping tomorrow's legends. From regional qualifiers to the global stage.

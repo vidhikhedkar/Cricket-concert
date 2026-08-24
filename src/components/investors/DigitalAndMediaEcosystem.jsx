@@ -23,7 +23,7 @@ const DigitalAndMediaEcosystem = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#191B23] mb-2 uppercase">
+            <h2 className="text-xl sm:text-4xl font-bold tracking-tight text-[#191B23] mb-2 uppercase">
               DIGITAL & MEDIA ECOSYSTEM
             </h2>
             <p className="text-xs sm:text-sm text-[#434654] font-regular leading-relaxed mb-10 max-w-xl">
@@ -31,7 +31,7 @@ const DigitalAndMediaEcosystem = () => {
             </p>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-5">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}

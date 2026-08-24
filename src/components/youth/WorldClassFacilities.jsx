@@ -11,8 +11,8 @@ const WorldClassFacilities = () => {
 
         {/* Section Header */}
         <div className="mb-12 max-w-xl">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B1F4D] uppercase leading-tight mb-3">
-            WORLD-CLASS<br />FACILITIES
+          <h2 className="text-2xl sm:text-4xl sm:max-w-80 w-full font-extrabold tracking-tight text-[#0B1F4D] uppercase leading-tight mb-3">
+            WORLD-CLASS FACILITIES
           </h2>
           <p className="text-sm sm:text-base text-[#444748] font-regular leading-relaxed">
             Train in environments designed for champions.

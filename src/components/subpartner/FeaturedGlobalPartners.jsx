@@ -29,7 +29,7 @@ const FeaturedGlobalPartners = () => {
 
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#191B23]">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#191B23]">
             Featured Global Partners
           </h2>
         </div>
@@ -43,10 +43,10 @@ const FeaturedGlobalPartners = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="rounded-xl  shadow-sm border border-[#C3C5D7]/30 flex flex-col sm:flex-row items-center gap-6 group hover:shadow-md transition-all bg-white"
+              className="rounded-2xl shadow-sm border border-[#C3C5D7]/30 flex flex-col sm:flex-row items-stretch overflow-hidden group hover:shadow-md transition-all bg-white"
             >
               {/* Partner Image */}
-              <div className="w-full sm:w-48 h-48 rounded-l-xl overflow-hidden shrink-0 shadow-inner">
+              <div className="w-full sm:w-48 h-48 sm:h-auto overflow-hidden shrink-0 bg-slate-100">
                 <img
                   src={partner.image}
                   alt={partner.name}
@@ -55,17 +55,17 @@ const FeaturedGlobalPartners = () => {
               </div>
 
               {/* Content Details */}
-              <div className="flex flex-col justify-between flex-1 w-full">
+              <div className="flex flex-col justify-between flex-1 p-6 sm:p-8 w-full">
                 <div>
-                  <div className="flex items-center justify-between sm:justify-start gap-3 mb-2">
-                    <h3 className="text-xl font-semibold text-[#191B23] tracking-tight">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#191B23] tracking-tight">
                       {partner.name}
                     </h3>
-                    <span className="text-[10px] font-semibold bg-[#EDEDF8] text-[#434654] px-2.5 py-0.5 rounded-full tracking-wider">
+                    <span className="text-[10px] font-semibold bg-[#EDEDF8] text-[#434654] px-2.5 py-1 rounded-full tracking-wider shrink-0">
                       {partner.country}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#434654] font-regular leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#434654] font-normal leading-relaxed mb-6">
                     {partner.description}
                   </p>
                 </div>
@@ -73,8 +73,8 @@ const FeaturedGlobalPartners = () => {
                 {/* Link */}
                 <div>
                   <Link
-                    to="/partner.link"
-                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-regular text-[#00389E] hover:text-blue-700 tracking-wider transition-colors group/link"
+                    to={partner.link}
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#00389E] hover:text-blue-700 tracking-wider transition-colors group/link"
                   >
                     View Case Study <FaArrowRight className="text-[10px] transition-transform group-hover/link:translate-x-1" />
                   </Link>

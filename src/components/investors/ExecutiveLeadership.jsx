@@ -36,9 +36,9 @@ const ExecutiveLeadership = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center max-w-2xl mx-auto sm:mb-12 mb-2"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase mb-4">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase mb-4">
             EXECUTIVE LEADERSHIP
           </h2>
           <p className="text-xs sm:text-sm text-[#434654] font-regular leading-relaxed">
@@ -47,7 +47,7 @@ const ExecutiveLeadership = () => {
         </motion.div>
 
         {/* Leaders Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 sm:gap-8 gap-2 max-w-6xl mx-auto">
           {leaders.map((leader, index) => (
             <motion.div
               key={index}

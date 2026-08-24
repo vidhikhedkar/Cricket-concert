@@ -34,7 +34,7 @@ const MediaResources = () => {
   return (
     <section className="bg-[#F3F3FE] py-16 relative overflow-hidden text-[#191B23]">
       <div className="container">
-        
+
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase">
@@ -52,18 +52,19 @@ const MediaResources = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-[#FAF8FF] rounded-xl p-8 flex flex-col items-center text-center group cursor-pointer transition-all hover:bg-white"
+              className="bg-[#FAF8FF] rounded-xl p-6 flex flex-col  item-start text-start group cursor-pointer transition-all hover:bg-white"
             >
-              {/* Icon Container */}
-              <div className="w-14 h-14 rounded-full bg-[#0B4DBB]/10 text-[#0B4DBB] shadow-sm flex items-center justify-center text-xl mb-6 transition-all group-hover:bg-[#0A192F] group-hover:text-white">
-                {item.icon}
+              <div className="flex flex-row gap-4  mb-4">
+                {/* Icon Container */}
+                <div className="w-10 h-10 rounded-full bg-[#0B4DBB]/10 text-[#0B4DBB] shadow-sm flex items-center justify-center text-xl transition-all group-hover:bg-[#0A192F] group-hover:text-white">
+                  {item.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl font-bold text-[#191B23] tracking-tight uppercase">
+                  {item.title}
+                </h3>
               </div>
-
-              {/* Title */}
-              <h3 className="text-lg sm:text-xl font-bold text-[#191B23] tracking-tight uppercase mb-3">
-                {item.title}
-              </h3>
-
               {/* Description */}
               <p className="text-xs sm:text-sm text-[#434654] font-regular leading-relaxed mb-8 flex-1">
                 {item.description}

@@ -47,7 +47,7 @@ const TransparencyAndGovernance = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase">
+          <h2 className="text-xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase">
             TRANSPARENCY & GOVERNANCE
           </h2>
         </motion.div>
@@ -64,16 +64,17 @@ const TransparencyAndGovernance = () => {
               className="bg-white rounded-xl p-6 sm:p-8 text-[#191B23] shadow-xl flex flex-col justify-between border border-[#C3C5D7]/20 hover:shadow-2xl transition-all"
             >
               <div>
-                {/* Icon */}
-                <div className=" text-[#434654] flex items-start justify-start text-lg mb-4">
-                  {doc.icon}
+                <div className="flex flex-row sm:flex-col items-center sm:items-start gap-4 sm:gap-0 mb-4 sm:mb-6">
+                  {/* Icon */}
+                  <div className=" text-[#434654] flex items-start justify-start text-lg mb-4">
+                    {doc.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-semibold text-[#191B23] tracking-tight mb-3">
+                    {doc.title}
+                  </h3>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-[#191B23] tracking-tight mb-3">
-                  {doc.title}
-                </h3>
-
                 {/* Description */}
                 <p className="text-xs sm:text-sm text-[#434654] font-regular leading-relaxed mb-2">
                   {doc.description}

@@ -27,7 +27,7 @@ const GlobalMarketReach = () => {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2 uppercase">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2 uppercase">
             Global Market Reach
           </h2>
           <p className="text-sm sm:text-base text-white/80 font-regular leading-relaxed">
@@ -52,7 +52,7 @@ const GlobalMarketReach = () => {
           <div className="absolute inset-0 bg-[#0A192F]/85 backdrop-blur-[1px]" />
 
           {/* Markets Grid */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 gap-5">
             {markets.map((market, index) => (
               <motion.div
                 key={index}

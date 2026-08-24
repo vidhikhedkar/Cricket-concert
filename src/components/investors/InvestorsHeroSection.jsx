@@ -23,7 +23,7 @@ const InvestorsHeroSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container text-center pt-24 sm:pt-32 pb-12">
+      <div className="relative z-10 container text-center pt-15 sm:pt-32 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ const InvestorsHeroSection = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xs sm:text-sm lg:text-base text-white/80 font-regular max-w-xl leading-relaxed mb-16">
+          <p className="text-xs sm:text-sm lg:text-base text-white/80 font-regular max-w-xl leading-relaxed sm:mb-16 mb-6">
             Invest in the premier authority of the fastest-growing global sport. Unprecedented reach, digital innovation, and institutional prestige.
           </p>
         </motion.div>

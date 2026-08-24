@@ -30,7 +30,7 @@ const ConnectWithWcc = () => {
                 >
                     {/* Left Column: Info */}
                     <div className="flex flex-col">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-[#191B23] tracking-tight uppercase mb-4">
+                        <h2 className="text-2xl sm:text-4xl font-bold text-[#191B23] tracking-tight uppercase mb-4">
                             Connect With Us
                         </h2>
                         <p className="text-sm sm:text-base text-[#434654] font-normal leading-relaxed mb-8">

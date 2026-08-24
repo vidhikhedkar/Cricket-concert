@@ -20,7 +20,7 @@ const AlumniBreakthroughs = () => {
   ];
 
   return (
-    <section className="bg-white py-16 my-10 border-t border-b border-[#C3C5D74D] text-[#191B23] relative overflow-hidden">
+    <section className="bg-white py-16 my-6 border-t border-b border-[#C3C5D74D] text-[#191B23] relative overflow-hidden">
       <div className="container">
 
         {/* Section Header */}

@@ -28,8 +28,8 @@ const FAQ = () => {
       <div className="container">
 
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#191B23] tracking-tight uppercase mb-3">
+        <div className="text-center mb-10">
+          <h2 className="text-xl sm:text-4xl font-bold text-[#191B23] tracking-tight uppercase mb-3">
             FREQUENTLY ASKED QUESTIONS
           </h2>
           <p className="text-[#434654] text-sm sm:text-base">

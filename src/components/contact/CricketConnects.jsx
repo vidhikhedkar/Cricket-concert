@@ -35,7 +35,7 @@ const CricketConnects = () => {
 
         {/* Section Heading & Subtitle */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#191B23] tracking-tight uppercase mb-4">
+          <h2 className="text-xl sm:text-3xl font-bold text-[#191B23] tracking-tight uppercase mb-4">
             CRICKET CONNECTS THE WORLD
           </h2>
           <p className="text-[#434654] text-sm sm:text-base leading-relaxed">

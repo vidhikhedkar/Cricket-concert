@@ -58,16 +58,17 @@ const WhyPartnerWithWCC = () => {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className="flex flex-col items-start group"
             >
-              {/* Icon Container */}
-              <div className="w-10 h-10 rounded-full bg-[#0A192F] text-white flex items-center justify-center mb-6 shadow-md transition-transform duration-300 group-hover:scale-110">
-                <span className="text-base">{benefit.icon}</span>
+              <div className="flex flex-row sm:flex-col items-center sm:items-start gap-4 sm:gap-0 mb-4 sm:mb-4">
+                {/* Icon Container */}
+                <div className="w-10 h-10 rounded-full bg-[#0A192F] text-white flex items-center justify-center sm:mb-4 mb-2 shadow-md transition-transform duration-300 group-hover:scale-110">
+                  <span className="text-base">{benefit.icon}</span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-regular text-[#191B23] tracking-tight">
+                  {benefit.title}
+                </h3>
               </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-regular text-[#191B23] tracking-tight mb-2">
-                {benefit.title}
-              </h3>
-
               {/* Description */}
               <p className="text-xs sm:text-sm text-[#434654] font-regular leading-relaxed">
                 {benefit.description}

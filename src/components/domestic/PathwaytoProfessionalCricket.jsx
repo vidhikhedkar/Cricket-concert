@@ -62,6 +62,8 @@ const PathwaytoProfessionalCricket = () => {
                     : 'bg-white text-[#191B23] border-[#C4C7C8] hover:shadow-md'
                   }`}
               >
+
+                
                 {/* Icon Container */}
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center ${step.dark ? 'bg-[#FFFFFF]/20' : 'bg-[#4C5D8E]/10'
                   }`}>

@@ -35,11 +35,11 @@ const HowItWorks = () => {
       <div className="container">
 
         {/* Section Header */}
-        <div className="text-start max-w-2xl mb-20">
+        <div className="text-start max-w-2xl sm:mb-20 mb-10">
           <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#00389E] mb-3 block">
             HOW IT WORKS
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#191B23] uppercase">
             The Partnership Journey
           </h2>
         </div>

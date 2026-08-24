@@ -1,20 +1,6 @@
 import React from 'react';
 import fan from '../../assets/icpl/section8/FanExperience.jpg';
-import {
-    FaTachometerAlt,
-    FaTicketAlt,
-    FaGamepad,
-    FaStar,
-    FaGlobe,
-    FaTrophy,
-    FaBalanceScale,
-    FaDesktop,
-    FaGraduationCap,
-    FaFemale,
-    FaCube,
-    FaVrCardboard,
-    FaTag
-} from 'react-icons/fa';
+import { FaTachometerAlt, FaTicketAlt, FaGamepad, FaStar, FaGlobe, FaTrophy, FaBalanceScale, FaDesktop, FaGraduationCap, FaFemale, FaCube, FaVrCardboard, FaTag } from 'react-icons/fa';
 
 const FanExperience = () => {
     return (
@@ -36,7 +22,7 @@ const FanExperience = () => {
                     Fan Experience
                 </h2>
 
-                {/* Top Features 2x2 Grid with pill-like background styling matching the screenshot */}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full max-w-4xl mb-4">
 
                     {/* Feature 1: Live Scores */}
@@ -161,10 +147,12 @@ const FanExperience = () => {
                     {/* Card 1: Digital Collectibles */}
                     <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col justify-between">
                         <div>
-                            <div className="text-[#0A192F] mb-6 bg-gray-100 w-12 h-12 rounded-2xl flex items-center justify-center">
-                                <FaCube className="w-5 h-5" />
+                            <div className="flex flex-row sm:flex-col items-center sm:items-start gap-4 sm:gap-0 mb-4 sm:mb-6">
+                                <div className="text-[#0A192F] sm:mb-6 mb-0 bg-gray-100 w-12 h-12 rounded-2xl flex items-center justify-center">
+                                    <FaCube className="w-5 h-5" />
+                                </div>
+                                <h3 className="text-xl font-bold text-[#0A192F] mb-3">Digital Collectibles</h3>
                             </div>
-                            <h3 className="text-xl font-bold text-[#0A192F] mb-3">Digital Collectibles</h3>
                             <p className="text-gray-600 text-sm leading-relaxed">
                                 Own limited-edition digital match moments as unique assets.
                             </p>
@@ -174,10 +162,12 @@ const FanExperience = () => {
                     {/* Card 2: Immersive VR View */}
                     <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col justify-between">
                         <div>
-                            <div className="text-[#0A192F] mb-6 bg-gray-100 w-12 h-12 rounded-2xl flex items-center justify-center">
-                                <FaVrCardboard className="w-5 h-5" />
+                            <div className="flex flex-row sm:flex-col items-center sm:items-start gap-4 sm:gap-0 mb-4 sm:mb-6">
+                                <div className="text-[#0A192F] sm:mb-6 mb-0 bg-gray-100 w-12 h-12 rounded-2xl flex items-center justify-center">
+                                    <FaVrCardboard className="w-5 h-5" />
+                                </div>
+                                <h3 className="text-xl font-bold text-[#0A192F] mb-3">Immersive VR View</h3>
                             </div>
-                            <h3 className="text-xl font-bold text-[#0A192F] mb-3">Immersive VR View</h3>
                             <p className="text-gray-600 text-sm leading-relaxed">
                                 Experience the game from the middle of the pitch with VR.
                             </p>
@@ -187,20 +177,22 @@ const FanExperience = () => {
                     {/* Card 3: Loyalty Rewards */}
                     <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col justify-between">
                         <div>
-                            <div className="text-[#0A192F] mb-6 bg-gray-100 w-12 h-12 rounded-2xl flex items-center justify-center">
+                            <div className="flex flex-row sm:flex-col items-center sm:items-start gap-4 sm:gap-0 mb-4 sm:mb-6">
+                            <div className="text-[#0A192F] sm:mb-6 mb-0 bg-gray-100 w-12 h-12 rounded-2xl flex items-center justify-center">
                                 <FaTag className="w-5 h-5" />
                             </div>
                             <h3 className="text-xl font-bold text-[#0A192F] mb-3">Loyalty Rewards</h3>
-                            <p className="text-gray-600 text-sm leading-relaxed">
-                                Exclusive access to player meets and training sessions.
-                            </p>
                         </div>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                            Exclusive access to player meets and training sessions.
+                        </p>
                     </div>
-
                 </div>
 
             </div>
-        </section>
+
+        </div>
+        </section >
     );
 };
 

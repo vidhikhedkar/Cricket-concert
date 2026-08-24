@@ -19,19 +19,19 @@ const Navbar = () => {
 
     const quickAccessLinks = [
         { name: 'Home', to: '/', icon: FiHome },
-        { name: 'Live Scores', to: '/live-scores', icon: FiRadio },
-        { name: 'Fixtures', to: '/fixtures', icon: FiCalendar },
-        { name: 'Results', to: '/results', icon: FiGrid },
-        { name: 'Rankings', to: '/rankings', icon: FiBarChart2 },
+        { name: 'Cricket', to: '/cricket', icon: FiRadio },
+        { name: 'Domestic', to: '/domestic', icon: FiCalendar },
+        { name: 'International', to: '/international', icon: FiGrid },
+        { name: 'Womens Cricket', to: '/womens-cricket', icon: FiBarChart2 },
     ];
 
     const exploreLinks = [
-        { name: 'Teams', to: '/teams', icon: FiUsers },
-        { name: 'Players', to: '/players', icon: FiUser },
-        { name: 'Tournaments', to: '/tournaments', icon: FiAward },
-        { name: 'News', to: '/news', icon: FiFileText },
-        { name: 'Gallery', to: '/gallery', icon: FiImage },
-        { name: 'Videos', to: '/videos', icon: FiVideo },
+        { name: 'Youth', to: '/youth', icon: FiUsers },
+        { name: 'Sponsors', to: '/sponsors', icon: FiUser },
+        { name: 'Sub Partners', to: '/subpartner', icon: FiAward },
+        { name: 'Investors', to: '/investors', icon: FiFileText },
+        { name: 'Media', to: '/media', icon: FiImage },
+        // { name: 'Videos', to: '/videos', icon: FiVideo },
     ];
 
     useEffect(() => {
@@ -47,14 +47,23 @@ const Navbar = () => {
             }
         };
 
+        // Close the dropdown when scrolling the page
+        const handleScroll = () => {
+            if (isDesktopDropdownOpen) {
+                setIsDesktopDropdownOpen(false);
+            }
+        };
+
         document.addEventListener('mousedown', handleClickOutside);
         window.addEventListener('resize', handleResize);
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
             window.removeEventListener('resize', handleResize);
+            window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [isDesktopDropdownOpen]);
 
     return (
         <nav className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">

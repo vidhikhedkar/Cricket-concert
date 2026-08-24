@@ -15,7 +15,7 @@ const GlobalCollaboration = () => {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4 uppercase">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-4 uppercase">
             Global Collaboration
           </h2>
           <p className="text-sm sm:text-base text-[#E2E1ED] font-regular leading-relaxed">

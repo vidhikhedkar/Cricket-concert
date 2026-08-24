@@ -37,7 +37,7 @@ const ResponseRoadmap = () => {
 
         {/* Roadmap Grid / Timeline */}
         <div className="relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             {steps.map((step, index) => (
               <div
                 key={index}
@@ -49,7 +49,7 @@ const ResponseRoadmap = () => {
                 </div>
 
                 {/* Step Title */}
-                <h3 className="text-sm sm:text-md font-semibold text-[#191B23] tracking-widest uppercase">
+                <h3 className="text-xs sm:text-md font-regular text-[#191B23] tracking-widest uppercase">
                   {step.title}
                 </h3>
 

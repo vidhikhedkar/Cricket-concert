@@ -39,8 +39,8 @@ const EliteCoaching = () => {
             </span>
 
             {/* Main Title */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase leading-tight mb-6 text-white">
-              ELITE<br />COACHING
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:max-w-60 w-full font-extrabold tracking-tight uppercase leading-tight mb-6 text-white">
+              ELITE COACHING
             </h2>
 
             {/* Description */}

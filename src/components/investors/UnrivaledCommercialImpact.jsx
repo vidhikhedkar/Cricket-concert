@@ -9,7 +9,7 @@ const UnrivaledCommercialImpact = () => {
   ];
 
   return (
-    <section className="bg-[#0A192F] py-16 relative overflow-hidden text-white">
+    <section className="bg-[#0A192F] py-14 relative overflow-hidden text-white">
       <div className="container text-center">
 
         {/* Section Header */}
@@ -20,13 +20,13 @@ const UnrivaledCommercialImpact = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white uppercase">
+          <h2 className="text-xl sm:text-4xl font-bold tracking-tight text-white uppercase">
             UNRIVALED COMMERCIAL IMPACT
           </h2>
         </motion.div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {metrics.map((metric, index) => (
             <motion.div
               key={index}

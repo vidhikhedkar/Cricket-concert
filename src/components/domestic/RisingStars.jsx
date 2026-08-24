@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUser, FaFire } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const RisingStars = () => {
   const topPerformers = [
@@ -75,9 +76,9 @@ const RisingStars = () => {
 
               {/* View All Stats Link */}
               <div className="pt-2 text-center">
-                <a href="#all-stats" className="text-xs sm:text-sm font-bold text-[#00389E] hover:underline">
+                <Link to="/all-stats" className="text-xs sm:text-sm font-bold text-[#00389E] hover:underline">
                   View All Stats
-                </a>
+                </Link>
               </div>
             </div>
           </div>

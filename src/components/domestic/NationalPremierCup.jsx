@@ -1,12 +1,13 @@
 import React from 'react';
 import NationalPremier1 from '../../assets/domestic/section2/NationalPremier1.jpg';
 import NationalPremier2 from '../../assets/domestic/section2/NationalPremier2.jpg';
+import { Link } from 'react-router-dom';
 
 const NationalPremierCup = () => {
   const standings = [
     { team: "Northern Knights", p: 8, w: 6, l: 2, pts: 12, dotColor: "bg-[#4C5D8E]" },
     { team: "Southern Spartans", p: 8, w: 5, l: 3, pts: 10, dotColor: "bg-[#4C5D8E]" },
-  { team: "Eastern Eagles", p: 8, w: 4, l: 4, pts: 8, dotColor: "bg-[#C4C7C8]" },
+    { team: "Eastern Eagles", p: 8, w: 4, l: 4, pts: 8, dotColor: "bg-[#C4C7C8]" },
     { team: "Western Wolves", p: 8, w: 3, l: 5, pts: 6, dotColor: "bg-[#C4C7C8]" },
     { team: "Lion Cape", p: 8, w: 3, l: 5, pts: 6, dotColor: "bg-[#C4C7C8]" },
   ];
@@ -77,10 +78,11 @@ const NationalPremierCup = () => {
               {/* Footer info & Match Center */}
               <div className="pt-4 border-t border-[#C3C5D7]/30 flex items-center justify-between text-xs sm:text-sm">
                 <span className="text-[#434654] font-regular">NOR need 42 runs from 10 balls.</span>
-                <a href="#match-center" className="text-[#00389E] font-semibold hover:underline flex items-center space-x-1">
+                <Link
+                  to="/match-center" className="text-[#00389E] font-semibold hover:underline flex items-center space-x-1">
                   <span>Match Center</span>
                   <span>→</span>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -113,9 +115,9 @@ const NationalPremierCup = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-[#1C1B1B] tracking-tight">
                 Current Standings
               </h3>
-              <a href="#full-table" className="text-xs font-bold text-[#4C5D8E] hover:underline">
+              <Link to="/full-table" className="text-xs font-bold text-[#4C5D8E] hover:underline">
                 Full Table
-              </a>
+              </Link>
             </div>
 
             <div className="overflow-x-auto">

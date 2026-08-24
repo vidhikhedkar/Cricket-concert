@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Calendar = () => {
   const scheduleData = [
@@ -73,9 +74,9 @@ const Calendar = () => {
                   {/* Tournament */}
                   <td className="py-5 px-6 font-semibold">
                     {item.isOngoing ? (
-                      <a href={item.link} className="text-[#00389E] hover:underline">
+                      <Link to={item.link} className="text-[#00389E] hover:underline">
                         {item.tournament}
-                      </a>
+                      </Link>
                     ) : (
                       <span>{item.tournament}</span>
                     )}

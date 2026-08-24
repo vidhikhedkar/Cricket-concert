@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UpcomingFixtures = () => {
   const fixtures = [
@@ -45,9 +46,9 @@ const UpcomingFixtures = () => {
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#191B23]">
                 Upcoming Fixtures
               </h2>
-              <a href="#full-schedule" className="text-xs font-semibold text-[#00389E] hover:underline">
+              <Link to="/full-schedule" className="text-xs font-semibold text-[#00389E] hover:underline">
                 Full Schedule
-              </a>
+              </Link>
             </div>
 
             {/* Fixture Cards */}

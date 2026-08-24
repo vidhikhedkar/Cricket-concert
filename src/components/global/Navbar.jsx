@@ -98,7 +98,7 @@ const Navbar = () => {
                             {/* Chevron button to trigger the dropdown menu */}
                             <button
                                 type="button"
-                                className="p-1 text-gray-600 hover:text-gray-900 focus:outline-none"
+                                className="p-1 text-gray-600 hover:text-gray-900 focus:outline-none cursor-pointer"
                                 aria-label="Toggle Quick Navigation"
                                 onClick={() => {
                                     if (window.innerWidth < 768) {
@@ -126,7 +126,7 @@ const Navbar = () => {
                                                             key={link.name}
                                                             to={link.to}
                                                             className={({ isActive }) =>
-                                                                `flex items-center justify-between uppercase px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                                                `flex items-center justify-between uppercase px-3 py-2 rounded-lg text-sm font-medium  transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                                                 }`
                                                             }
                                                             onClick={() => setIsDesktopDropdownOpen(false)}
@@ -258,7 +258,7 @@ const Navbar = () => {
 
             {/* Mobile Overlay Navigation */}
             <div className={`fixed inset-0 bg-[#05142c] text-white z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${isDropdownOverlayOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-                <div className="flex items-center justify-between px-4 py-4 border-b border-blue-900/60">
+                <div className="flex items-center justify-between px-4 py-4 border-b border-blue-900/60 ">
                     <div className="w-7"></div>
                     <div className="flex items-center space-x-2">
                         <Link 
@@ -299,7 +299,7 @@ const Navbar = () => {
                                         key={link.name}
                                         to={link.to}
                                         className={({ isActive }) =>
-                                            `flex items-center justify-between uppercase px-3 py-3 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
+                                            `flex items-center justify-between uppercase px-3 py-3 rounded-lg text-sm font-medium  transition-colors ${isActive ? 'bg-blue-950/85 text-white font-semibold' : 'text-gray-200 hover:bg-blue-950/40 hover:text-white'
                                             }`
                                         }
                                         onClick={() => setIsDropdownOverlayOpen(false)}
@@ -308,7 +308,7 @@ const Navbar = () => {
                                             {IconComponent && <IconComponent className="w-4 h-4 text-gray-400" />}
                                             <span>{link.name}</span>
                                         </div>
-                                        <FiChevronRight className="w-4 h-4 text-gray-400" />
+                                        <FiChevronRight className="w-4 h-4 text-gray-400 " />
                                     </NavLink>
                                 );
                             })}

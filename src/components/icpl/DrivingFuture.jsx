@@ -1,5 +1,5 @@
 import React from 'react';
-import DrivingFutureImg from '../../assets/icpl/section3/DrivingFuture.png';
+import DrivingFutureImg from '../../assets/icpl/section3/Drivingfuture.png';
 
 const DrivingFuture = () => {
   return (
